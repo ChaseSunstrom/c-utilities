@@ -1,0 +1,3 @@
+/home/chase/Projects/C/Spectra/build/CMakeFiles/c-utilities.dir
+/home/chase/Projects/C/Spectra/build/CMakeFiles/edit_cache.dir
+/home/chase/Projects/C/Spectra/build/CMakeFiles/rebuild_cache.dir
