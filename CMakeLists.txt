@@ -14,5 +14,17 @@ add_executable(
   src/util/error.c
   src/util/error.h
   src/util/result.c
-  src/util/result.h)
+  src/util/result.h
+  src/util/mem.h
+  src/util/mem.c
+  src/util/system.h
+  src/util/alloc.h
+  src/util/alloc.c
+  tests/test_main.h
+  tests/test_main.c
+  tests/test_vector.c
+  tests/test_vector.h
+  tests/test_allocator.c
+  tests/test_allocator.h)
+
 target_include_directories(${PROJECT_NAME} PRIVATE include)

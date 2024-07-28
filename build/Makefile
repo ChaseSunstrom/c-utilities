@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/chase/Projects/C/Spectra
+CMAKE_SOURCE_DIR = /home/chase/Projects/C/c-utilities
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/chase/Projects/C/Spectra/build
+CMAKE_BINARY_DIR = /home/chase/Projects/C/c-utilities/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chase/Projects/C/Spectra/build/CMakeFiles /home/chase/Projects/C/Spectra/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chase/Projects/C/c-utilities/build/CMakeFiles /home/chase/Projects/C/c-utilities/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chase/Projects/C/Spectra/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chase/Projects/C/c-utilities/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -153,6 +153,30 @@ src/main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/main.c.s
 .PHONY : src/main.c.s
 
+src/util/alloc.o: src/util/alloc.c.o
+.PHONY : src/util/alloc.o
+
+# target to build an object file
+src/util/alloc.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/alloc.c.o
+.PHONY : src/util/alloc.c.o
+
+src/util/alloc.i: src/util/alloc.c.i
+.PHONY : src/util/alloc.i
+
+# target to preprocess a source file
+src/util/alloc.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/alloc.c.i
+.PHONY : src/util/alloc.c.i
+
+src/util/alloc.s: src/util/alloc.c.s
+.PHONY : src/util/alloc.s
+
+# target to generate assembly for a file
+src/util/alloc.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/alloc.c.s
+.PHONY : src/util/alloc.c.s
+
 src/util/error.o: src/util/error.c.o
 .PHONY : src/util/error.o
 
@@ -176,6 +200,30 @@ src/util/error.s: src/util/error.c.s
 src/util/error.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/error.c.s
 .PHONY : src/util/error.c.s
+
+src/util/mem.o: src/util/mem.c.o
+.PHONY : src/util/mem.o
+
+# target to build an object file
+src/util/mem.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/mem.c.o
+.PHONY : src/util/mem.c.o
+
+src/util/mem.i: src/util/mem.c.i
+.PHONY : src/util/mem.i
+
+# target to preprocess a source file
+src/util/mem.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/mem.c.i
+.PHONY : src/util/mem.c.i
+
+src/util/mem.s: src/util/mem.c.s
+.PHONY : src/util/mem.s
+
+# target to generate assembly for a file
+src/util/mem.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/mem.c.s
+.PHONY : src/util/mem.c.s
 
 src/util/result.o: src/util/result.c.o
 .PHONY : src/util/result.o
@@ -225,6 +273,78 @@ src/util/vector.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/vector.c.s
 .PHONY : src/util/vector.c.s
 
+tests/test_allocator.o: tests/test_allocator.c.o
+.PHONY : tests/test_allocator.o
+
+# target to build an object file
+tests/test_allocator.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/tests/test_allocator.c.o
+.PHONY : tests/test_allocator.c.o
+
+tests/test_allocator.i: tests/test_allocator.c.i
+.PHONY : tests/test_allocator.i
+
+# target to preprocess a source file
+tests/test_allocator.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/tests/test_allocator.c.i
+.PHONY : tests/test_allocator.c.i
+
+tests/test_allocator.s: tests/test_allocator.c.s
+.PHONY : tests/test_allocator.s
+
+# target to generate assembly for a file
+tests/test_allocator.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/tests/test_allocator.c.s
+.PHONY : tests/test_allocator.c.s
+
+tests/test_main.o: tests/test_main.c.o
+.PHONY : tests/test_main.o
+
+# target to build an object file
+tests/test_main.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/tests/test_main.c.o
+.PHONY : tests/test_main.c.o
+
+tests/test_main.i: tests/test_main.c.i
+.PHONY : tests/test_main.i
+
+# target to preprocess a source file
+tests/test_main.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/tests/test_main.c.i
+.PHONY : tests/test_main.c.i
+
+tests/test_main.s: tests/test_main.c.s
+.PHONY : tests/test_main.s
+
+# target to generate assembly for a file
+tests/test_main.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/tests/test_main.c.s
+.PHONY : tests/test_main.c.s
+
+tests/test_vector.o: tests/test_vector.c.o
+.PHONY : tests/test_vector.o
+
+# target to build an object file
+tests/test_vector.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/tests/test_vector.c.o
+.PHONY : tests/test_vector.c.o
+
+tests/test_vector.i: tests/test_vector.c.i
+.PHONY : tests/test_vector.i
+
+# target to preprocess a source file
+tests/test_vector.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/tests/test_vector.c.i
+.PHONY : tests/test_vector.c.i
+
+tests/test_vector.s: tests/test_vector.c.s
+.PHONY : tests/test_vector.s
+
+# target to generate assembly for a file
+tests/test_vector.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/tests/test_vector.c.s
+.PHONY : tests/test_vector.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -237,15 +357,30 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/util/alloc.o"
+	@echo "... src/util/alloc.i"
+	@echo "... src/util/alloc.s"
 	@echo "... src/util/error.o"
 	@echo "... src/util/error.i"
 	@echo "... src/util/error.s"
+	@echo "... src/util/mem.o"
+	@echo "... src/util/mem.i"
+	@echo "... src/util/mem.s"
 	@echo "... src/util/result.o"
 	@echo "... src/util/result.i"
 	@echo "... src/util/result.s"
 	@echo "... src/util/vector.o"
 	@echo "... src/util/vector.i"
 	@echo "... src/util/vector.s"
+	@echo "... tests/test_allocator.o"
+	@echo "... tests/test_allocator.i"
+	@echo "... tests/test_allocator.s"
+	@echo "... tests/test_main.o"
+	@echo "... tests/test_main.i"
+	@echo "... tests/test_main.s"
+	@echo "... tests/test_vector.o"
+	@echo "... tests/test_vector.i"
+	@echo "... tests/test_vector.s"
 .PHONY : help
 
 

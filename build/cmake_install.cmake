@@ -1,4 +1,4 @@
-# Install script for directory: /home/chase/Projects/C/Spectra
+# Install script for directory: /home/chase/Projects/C/c-utilities
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/chase/Projects/C/Spectra/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/chase/Projects/C/c-utilities/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

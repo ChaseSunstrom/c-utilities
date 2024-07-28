@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = 
 
-C_INCLUDES = -I/home/chase/Projects/C/Spectra/include
+C_INCLUDES = -I/home/chase/Projects/C/c-utilities/include
 
 C_FLAGS = -std=gnu2x
 

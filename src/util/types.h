@@ -1,6 +1,8 @@
-#ifndef SPECTRA_TYPES_H
-#define SPECTRA_TYPES_H
+#ifndef CUTIL_TYPES_H
+#define CUTIL_TYPES_H
 
+#include "system.h"
+#include <stddef.h>
 #include <stdint.h>
 
 typedef uint8_t u8;
@@ -15,5 +17,11 @@ typedef int64_t i64;
 
 typedef float f32;
 typedef double f64;
+
+#if CUTIL_UNIX
+#include <sys/types.h>
+#endif
+typedef ptrdiff_t ssize_t;
+#else
 
 #endif

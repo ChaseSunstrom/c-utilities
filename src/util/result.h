@@ -1,5 +1,9 @@
-#ifndef SPECTRA_RESULT_H
-#define SPECTRA_RESULT_H
+#ifndef CUTIL_RESULT_H
+#define CUTIL_RESULT_H
+
+#ifndef CUTIL_RESULT_INCLUDED
+#define CUTIL_RESULT_INCLUDED
+#endif
 
 #include "error.h"
 
@@ -9,7 +13,7 @@ typedef struct {
   void *p_data;
 } _Result_T;
 
-#define Result_T(type) _Result_T
+#define Result(type) _Result_T
 
 #define Result_new_ok(type, data)                                              \
   (Result_T(type)) { .b_is_ok = true, .p_error = NULL, .p_data = (void *)data }

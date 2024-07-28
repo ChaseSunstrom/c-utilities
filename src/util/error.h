@@ -1,5 +1,9 @@
-#ifndef SPECTRA_ERROR_H
-#define SPECTRA_ERROR_H
+#ifndef CUTIL_ERROR_H
+#define CUTIL_ERROR_H
+
+#ifndef CUTIL_ERROR_INCLUDED
+#define CUTIL_ERROR_INCLUDED
+#endif
 
 #include "pch.h"
 
