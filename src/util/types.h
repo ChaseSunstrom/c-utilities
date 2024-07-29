@@ -20,8 +20,7 @@ typedef double f64;
 
 #if CUTIL_UNIX
 #include <sys/types.h>
-#endif
-typedef ptrdiff_t ssize_t;
 #else
-
+typedef ptrdiff_t ssize_t;
+#endif
 #endif
