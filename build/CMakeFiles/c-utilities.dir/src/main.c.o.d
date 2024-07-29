@@ -72,5 +72,6 @@ CMakeFiles/c-utilities.dir/src/main.c.o: \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
  /home/chase/Projects/C/c-utilities/src/../tests/../src/util/vector.h \
+ /home/chase/Projects/C/c-utilities/src/../tests/../src/util/alloc.h \
  /home/chase/Projects/C/c-utilities/src/../tests/../src/util/mem.h \
  /home/chase/Projects/C/c-utilities/src/../tests/../src/util/pch.h

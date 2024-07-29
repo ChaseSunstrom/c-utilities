@@ -18,22 +18,21 @@
 #endif
 #endif
 
-void *_auto_alloc(void *p_allocator, size_t u_size, size_t u_amount,
-                  void (*dealloc)(void *));
-void *_auto_realloc(void *p_allocator, void *p_data, size_t u_size,
-                    size_t u_amount);
-void _auto_free(void *p_allocator, void *p_data, size_t u_size,
-                size_t u_amount);
+void *auto_alloc(void *p_allocator, size_t u_size, size_t u_amount,
+                 void (*dealloc)(void *));
+void *auto_realloc(void *p_allocator, void *p_data, size_t u_size,
+                   size_t u_amount);
+void auto_free(void *p_allocator, void *p_data);
 
-void *_stack_alloc(size_t u_size, size_t u_amount);
-void *_general_alloc(size_t u_size, size_t u_amount);
-void *_arena_alloc(size_t u_size, size_t u_amount);
-void *_page_alloc(size_t u_size, size_t u_amount);
+void *stack_alloc(size_t u_size, size_t u_amount);
+void *general_alloc(size_t u_size, size_t u_amount);
+void *arena_alloc(size_t u_size, size_t u_amount);
+void *page_alloc(size_t u_size, size_t u_amount);
 
-void *_general_realloc(void *p_data, size_t u_size, size_t u_amount);
-void *_arena_realloc(void *p_data, size_t u_size, size_t u_amount);
-void *_page_realloc(void *p_data, size_t u_size, size_t u_amount);
+void *general_realloc(void *p_data, size_t u_size, size_t u_amount);
+void *arena_realloc(void *p_data, size_t u_size, size_t u_amount);
+void *page_realloc(void *p_data, size_t u_size, size_t u_amount);
 
-void _page_free(void *p_data, size_t u_size, size_t u_amount);
+void page_free(void *p_data, size_t u_size, size_t u_amount);
 
 #endif

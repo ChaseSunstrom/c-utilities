@@ -2,6 +2,7 @@ CMakeFiles/c-utilities.dir/src/util/vector.c.o: \
  /home/chase/Projects/C/c-utilities/src/util/vector.c \
  /usr/include/stdc-predef.h \
  /home/chase/Projects/C/c-utilities/src/util/vector.h \
+ /home/chase/Projects/C/c-utilities/src/util/alloc.h \
  /home/chase/Projects/C/c-utilities/src/util/mem.h \
  /home/chase/Projects/C/c-utilities/src/util/pch.h /usr/include/assert.h \
  /usr/include/features.h /usr/include/features-time64.h \

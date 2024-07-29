@@ -1,55 +1,45 @@
 #include "mem.h"
 
-void *_auto_alloc(void *p_allocator, size_t u_size, size_t u_amount,
-                  void (*dealloc)(void *)) {
-#ifdef CUTIL_ALLOC_INCLUDED
-  _Allocator_T *p_alloc = (_Allocator_T *)p_allocator;
+#include "alloc.h"
+
+void *auto_alloc(void *p_allocator, size_t u_size, size_t u_amount,
+                 void (*dealloc)(void *)) {
+  Allocator *p_alloc = (Allocator *)p_allocator;
   if (p_alloc) {
     return Allocator_alloc(p_alloc, u_size, u_amount, dealloc);
   }
-#else
-  return malloc(u_size * u_amount);
-#endif
 }
 
-void _auto_free(void *p_allocator, void *p_data, size_t u_size,
-                size_t u_amount) {
+void auto_free(void *p_allocator, void *p_data) {
 
-#ifdef CUTIL_ALLOC_INCLUDED
-  _Allocator_T *p_alloc = (_Allocator_T *)p_allocator;
+  Allocator *p_alloc = (Allocator *)p_allocator;
   if (p_alloc) {
-    _Allocator_free(p_alloc, p_data);
+    Allocator_free(p_alloc, p_data);
     return;
   }
-#else
-  free(p_data);
-#endif
 }
 
-void *_auto_realloc(void *p_allocator, void *p_data, size_t u_size,
-                    size_t u_amount) {
-#ifdef CUTIL_ALLOC_INCLUDED
-  _Allocator_T *p_alloc = (_Allocator_T *)p_allocator;
+void *auto_realloc(void *p_allocator, void *p_data, size_t u_size,
+                   size_t u_amount) {
+  Allocator *p_alloc = (Allocator *)p_allocator;
   if (p_alloc) {
-    return _Allocator_realloc(p_alloc, p_data, u_size * u_amount);
+    return Allocator_realloc(p_alloc, p_data, u_size * u_amount);
   }
-#endif
-  return realloc(p_data, u_size * u_amount);
 }
 
-void *_stack_alloc(size_t u_size, size_t u_amount) {
+void *stack_alloc(size_t u_size, size_t u_amount) {
   return alloca(u_size * u_amount);
 }
 
-void *_general_alloc(size_t u_size, size_t u_amount) {
+void *general_alloc(size_t u_size, size_t u_amount) {
   return malloc(u_size * u_amount);
 }
 
-void *_arena_alloc(size_t u_size, size_t u_amount) {
+void *arena_alloc(size_t u_size, size_t u_amount) {
   return malloc(u_size * u_amount);
 }
 
-void *_page_alloc(size_t u_size, size_t u_amount) {
+void *page_alloc(size_t u_size, size_t u_amount) {
   size_t total_size = u_size * u_amount;
 
 #ifdef _WIN32
@@ -64,33 +54,33 @@ void *_page_alloc(size_t u_size, size_t u_amount) {
   size_t alloc_size = (total_size + page_size - 1) & ~(page_size - 1);
 
 #ifdef _WIN32
-  void *ptr =
+  void *p_ptr =
       VirtualAlloc(NULL, alloc_size, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
 #else
-  void *ptr = mmap(NULL, alloc_size, PROT_READ | PROT_WRITE,
-                   MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
-  if (ptr == MAP_FAILED) {
-    ptr = NULL;
+  void *p_ptr = mmap(NULL, alloc_size, PROT_READ | PROT_WRITE,
+                     MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+  if (p_ptr == MAP_FAILED) {
+    p_ptr = NULL;
   }
 #endif
-  return ptr;
+  return p_ptr;
 }
 
-void *_general_realloc(void *ptr, size_t u_size, size_t u_amount) {
-  return realloc(ptr, u_size * u_amount);
+void *general_realloc(void *p_ptr, size_t u_size, size_t u_amount) {
+  return realloc(p_ptr, u_size * u_amount);
 }
 
-void *_arena_realloc(void *ptr, size_t u_size, size_t u_amount) {
-  return realloc(ptr, u_size * u_amount);
+void *arena_realloc(void *p_ptr, size_t u_size, size_t u_amount) {
+  return realloc(p_ptr, u_size * u_amount);
 }
 
-void *_page_realloc(void *ptr, size_t old_size, size_t new_size) {
-  if (ptr == NULL) {
-    return _page_alloc(new_size, 1);
+void *page_realloc(void *p_ptr, size_t old_size, size_t new_size) {
+  if (p_ptr == NULL) {
+    return page_alloc(new_size, 1);
   }
 
   if (new_size == 0) {
-    _page_free(ptr, old_size, 1);
+    page_free(p_ptr, old_size, 1);
     return NULL;
   }
 
@@ -107,25 +97,25 @@ void *_page_realloc(void *ptr, size_t old_size, size_t new_size) {
 
   if (new_alloc_size <= old_alloc_size) {
     // Shrinking or same size, just return the original pointer
-    return ptr;
+    return p_ptr;
   }
 
   // Need to allocate a new, larger area
-  void *new_ptr = _page_alloc(new_size, 1);
-  if (new_ptr == NULL) {
+  void *new_p_ptr = page_alloc(new_size, 1);
+  if (new_p_ptr == NULL) {
     return NULL; // Allocation failed
   }
 
   // Copy old data to new location
-  memcpy(new_ptr, ptr, old_size);
+  memcpy(new_p_ptr, p_ptr, old_size);
 
   // Free the old allocation
-  _page_free(ptr, old_size, 1);
+  page_free(p_ptr, old_size, 1);
 
-  return new_ptr;
+  return new_p_ptr;
 }
 
-void _page_free(void *ptr, size_t u_size, size_t u_amount) {
+void page_free(void *p_ptr, size_t u_size, size_t u_amount) {
   size_t total_size = u_size * u_amount;
 
 #ifdef _WIN32
@@ -139,8 +129,8 @@ void _page_free(void *ptr, size_t u_size, size_t u_amount) {
   size_t alloc_size = (total_size + page_size - 1) & ~(page_size - 1);
 
 #ifdef _WIN32
-  VirtualFree(ptr, 0, MEM_RELEASE);
+  VirtualFree(p_ptr, 0, MEM_RELEASE);
 #else
-  munmap(ptr, alloc_size);
+  munmap(p_ptr, alloc_size);
 #endif
 }

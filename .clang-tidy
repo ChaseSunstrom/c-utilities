@@ -1,0 +1,14 @@
+Checks: '-*,
+         some-other-checks,
+         readability-*,
+         -readability-function-cognitive-complexity
+         clang-analyzer-unix.MallocSizeof,
+         clang-analyzer-unix.MismatchedDeallocator,
+         bugprone-*,
+         cert-*,
+         performance-*,
+         portability-*,
+         readability-*,'
+WarningsAsErrors: ''
+HeaderFilterRegex: '.*'
+FormatStyle: none
