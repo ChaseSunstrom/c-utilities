@@ -177,6 +177,30 @@ src/util/alloc.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/alloc.c.s
 .PHONY : src/util/alloc.c.s
 
+src/util/container.o: src/util/container.c.o
+.PHONY : src/util/container.o
+
+# target to build an object file
+src/util/container.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/container.c.o
+.PHONY : src/util/container.c.o
+
+src/util/container.i: src/util/container.c.i
+.PHONY : src/util/container.i
+
+# target to preprocess a source file
+src/util/container.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/container.c.i
+.PHONY : src/util/container.c.i
+
+src/util/container.s: src/util/container.c.s
+.PHONY : src/util/container.s
+
+# target to generate assembly for a file
+src/util/container.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/container.c.s
+.PHONY : src/util/container.c.s
+
 src/util/error.o: src/util/error.c.o
 .PHONY : src/util/error.o
 
@@ -360,6 +384,9 @@ help:
 	@echo "... src/util/alloc.o"
 	@echo "... src/util/alloc.i"
 	@echo "... src/util/alloc.s"
+	@echo "... src/util/container.o"
+	@echo "... src/util/container.i"
+	@echo "... src/util/container.s"
 	@echo "... src/util/error.o"
 	@echo "... src/util/error.i"
 	@echo "... src/util/error.s"

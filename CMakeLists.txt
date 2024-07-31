@@ -20,6 +20,8 @@ add_executable(
   src/util/system.h
   src/util/alloc.h
   src/util/alloc.c
+  src/util/container.h
+  src/util/container.c
   tests/test_main.h
   tests/test_main.c
   tests/test_vector.c

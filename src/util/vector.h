@@ -2,18 +2,12 @@
 #define CUTIL_VECTOR_H
 
 #include "alloc.h"
+#include "container.h"
 #include "mem.h"
 #include "pch.h"
 
 typedef struct {
-  size_t u_capacity;
-  size_t u_size;
-  void **p_data;
-  void (*destructor)(void *);
-  Allocator *p_allocator;
-#if CUTIL_AUTO_CLEANUP_TYPES
-  size_t u_references;
-#endif
+  Container *container;
 } Vector;
 
 #define Vector(type) CUTIL_AUTO_CLEANUP(Vector_free_) Vector *

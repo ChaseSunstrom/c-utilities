@@ -74,4 +74,5 @@ CMakeFiles/c-utilities.dir/src/main.c.o: \
  /home/chase/Projects/C/c-utilities/src/../tests/../src/util/vector.h \
  /home/chase/Projects/C/c-utilities/src/../tests/../src/util/alloc.h \
  /home/chase/Projects/C/c-utilities/src/../tests/../src/util/mem.h \
- /home/chase/Projects/C/c-utilities/src/../tests/../src/util/pch.h
+ /home/chase/Projects/C/c-utilities/src/../tests/../src/util/pch.h \
+ /home/chase/Projects/C/c-utilities/src/../tests/../src/util/container.h
