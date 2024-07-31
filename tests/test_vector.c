@@ -1,95 +1,83 @@
 #include "test_vector.h"
+#include <assert.h>
 
 bool test_vector_new() {
+  Allocator* p_allocator = Allocator_new(PAGE_ALLOCATOR);
   Vector(i32) v = Vector_new(NULL);
-  if (v->u_size == 0 && v->u_capacity == 4 && v->p_data && v) {
+  if (v && v->container && v->container->u_size == 0 && v->container->u_capacity == 4 && v->container->p_data) {
     return true;
   }
   return false;
 }
 
 bool test_vector_push_back() {
-  Vector(i32) v = Vector_new(NULL);
+  Allocator* p_allocator = Allocator_new(GENERAL_ALLOCATOR);
+  Vector(i32) v = Vector_new(NULL, p_allocator);
   i32 i = 1;
   Vector_push_back(v, (void *)i);
-  if (v->u_size == 1 && v->u_capacity == 4) {
-    return true;
-  }
-
-  return false;
+  bool result = (v->container->u_size == 1 && v->container->u_capacity == 4);
+  Allocator_free_everything(p_allocator);
+  return result;
 }
 
 bool test_vector_at() {
-  Vector(i32) v = Vector_new(NULL);
+  Allocator *allocator = Allocator_new(PAGE_ALLOCATOR);
+  Vector(i32) v = Vector_new_2(NULL, allocator);
   i32 i = 1;
-  Vector_push_back(v, (void *)i);
-  if ((i32)Vector_at(v, 0) == 1) {
-    return true;
-  }
-  return false;
+  Vector_push_back(v, (void *)(intptr_t)i);
+  bool result = ((intptr_t)Vector_at(v, 0) == 1);
+  return result;
 }
 
 bool test_vector_front() {
   Vector(i32) v = Vector_new(NULL);
   i32 i = 1;
-  Vector_push_back(v, (void *)i);
-  if ((i32)Vector_front(v) == 1) {
-    return true;
-  }
-  return false;
+  Vector_push_back(v, (void *)(intptr_t)i);
+  bool result = ((intptr_t)Vector_front(v) == 1);
+  return result;
 }
 
 bool test_vector_back() {
   Vector(i32) v = Vector_new(NULL);
   i32 i = 1;
-  Vector_push_back(v, (void *)i);
-  if ((i32)Vector_back(v) == 1) {
-    return true;
-  }
-  return false;
+  Vector_push_back(v, (void *)(intptr_t)i);
+  bool result = ((intptr_t)Vector_back(v) == 1);
+  return result;
 }
 
 bool test_vector_pop_back() {
   Vector(i32) v = Vector_new(NULL);
   i32 i = 1;
-  Vector_push_back(v, (void *)i);
+  Vector_push_back(v, (void *)(intptr_t)i);
   Vector_pop_back(v);
-  if (v->u_size == 0) {
-    return true;
-  }
-  return false;
+  bool result = (v->container->u_size == 0);
+  return result;
 }
 
 bool test_vector_insert() {
   Vector(i32) v = Vector_new(NULL);
   i32 i = 1;
-  Vector_push_back(v, (void *)i);
+  Vector_push_back(v, (void *)(intptr_t)i);
   i32 j = 2;
-  Vector_insert(v, 0, (void *)j);
-  if ((i32)Vector_at(v, 0) == 2) {
-    return true;
-  }
-  return false;
+  Vector_insert(v, 0, (void *)(intptr_t)j);
+  bool result = ((intptr_t)Vector_at(v, 0) == 2);
+  return result;
 }
 
 bool test_vector_erase() {
   Vector(i32) v = Vector_new(NULL);
   i32 i = 1;
-  Vector_push_back(v, (void *)i);
+  Vector_push_back(v, (void *)(intptr_t)i);
   Vector_erase(v, 0);
-  if (v->u_size == 0) {
-    return true;
-  }
-  return false;
+  bool result = (v->container->u_size == 0);
+  return result;
 }
 
 bool test_vector_clear() {
   Vector(i32) v = Vector_new(NULL);
   i32 i = 1;
-  Vector_push_back(v, (void *)i);
+  Vector_push_back(v, (void *)(intptr_t)i);
   Vector_clear(v);
-  if (v->u_size == 0) {
-    return true;
-  }
-  return false;
+  bool result = (v->container->u_size == 0);
+  return result;
 }

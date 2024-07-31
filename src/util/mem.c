@@ -2,31 +2,6 @@
 
 #include "alloc.h"
 
-void *auto_alloc(void *p_allocator, size_t u_size, size_t u_amount,
-                 void (*dealloc)(void *)) {
-  Allocator *p_alloc = (Allocator *)p_allocator;
-  if (p_alloc) {
-    return Allocator_alloc(p_alloc, u_size, u_amount, dealloc);
-  }
-}
-
-void auto_free(void *p_allocator, void *p_data) {
-
-  Allocator *p_alloc = (Allocator *)p_allocator;
-  if (p_alloc) {
-    Allocator_free(p_alloc, p_data);
-    return;
-  }
-}
-
-void *auto_realloc(void *p_allocator, void *p_data, size_t u_size,
-                   size_t u_amount) {
-  Allocator *p_alloc = (Allocator *)p_allocator;
-  if (p_alloc) {
-    return Allocator_realloc(p_alloc, p_data, u_size * u_amount);
-  }
-}
-
 void *stack_alloc(size_t u_size, size_t u_amount) {
   return alloca(u_size * u_amount);
 }

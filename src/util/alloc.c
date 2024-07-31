@@ -134,7 +134,8 @@ void Allocator_free(Allocator *p_allocator, void *p_data) {
   }
 
   for (size_t i = 0; i < p_allocator->blocks_size; ++i) {
-    if (p_allocator->p_blocks[i].p_data == p_data) {
+    if (p_allocator->p_blocks[i].p_data &&
+        p_allocator->p_blocks[i].p_data == p_data) {
       p_allocator->u_size -= p_allocator->p_blocks[i].u_size;
 
       if (p_allocator->type == PAGE_ALLOCATOR) {

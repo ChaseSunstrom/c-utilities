@@ -35,7 +35,7 @@ void _Tests_T_run(_Tests_T *p_tests) {
 
   printf("Running tests...\n");
 
-  for (size_t i = 0; i < p_tests->v_tests->u_size; i++) {
+  for (size_t i = 0; i < p_tests->v_tests->container->u_size; i++) {
     _Test_T *p_test = (_Test_T *)Vector_at(p_tests->v_tests, i);
     if (p_test->p_fn()) {
       printf("%s passed \n", p_test->p_name);

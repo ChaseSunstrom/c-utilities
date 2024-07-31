@@ -72,4 +72,5 @@ CMakeFiles/c-utilities.dir/src/util/vector.c.o: \
  /home/chase/Projects/C/c-utilities/src/util/system.h \
  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
- /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h
+ /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
+ /home/chase/Projects/C/c-utilities/src/util/container.h

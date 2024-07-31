@@ -18,12 +18,6 @@
 #endif
 #endif
 
-void *auto_alloc(void *p_allocator, size_t u_size, size_t u_amount,
-                 void (*dealloc)(void *));
-void *auto_realloc(void *p_allocator, void *p_data, size_t u_size,
-                   size_t u_amount);
-void auto_free(void *p_allocator, void *p_data);
-
 void *stack_alloc(size_t u_size, size_t u_amount);
 void *general_alloc(size_t u_size, size_t u_amount);
 void *arena_alloc(size_t u_size, size_t u_amount);
