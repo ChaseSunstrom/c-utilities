@@ -89,6 +89,7 @@ Allocator *Allocator_new_1(Alloc_T type) {
   p_allocator->p_blocks = NULL;
   p_allocator->blocks_capacity = 0;
   p_allocator->blocks_size = 0;
+  p_allocator->u_ref_count = 1;
   _set_allocator_from_type(type, p_allocator);
   return p_allocator;
 }
@@ -106,6 +107,7 @@ Allocator *Allocator_new_2(Alloc_T type, ssize_t s_capacity) {
   p_allocator->p_blocks = NULL;
   p_allocator->blocks_capacity = 0;
   p_allocator->blocks_size = 0;
+  p_allocator->u_ref_count = 1;
   _set_allocator_from_type(type, p_allocator);
   return p_allocator;
 }
@@ -123,10 +125,27 @@ Allocator *Allocator_new_4(Alloc_T type, ssize_t s_capacity, Alloc_Fn alloc,
   p_allocator->p_blocks = NULL;
   p_allocator->blocks_capacity = 0;
   p_allocator->blocks_size = 0;
+  p_allocator->u_ref_count = 1;
   p_allocator->alloc = alloc;
   p_allocator->realloc = realloc;
   return p_allocator;
 }
+
+#if CUTIL_AUTO_CLEANUP_TYPES
+void Allocator_free_(Allocator **pp_allocator) {
+  if (!pp_allocator || !*pp_allocator) {
+    return;
+  }
+
+  Allocator *p_allocator = *pp_allocator;
+  if (p_allocator->u_ref_count > 1) {
+    p_allocator->u_ref_count--;
+  } else {
+    Allocator_free_everything(p_allocator);
+    *pp_allocator = NULL;
+  }
+}
+#endif
 
 void Allocator_free(Allocator *p_allocator, void *p_data) {
   if (!p_allocator || !p_data) {
@@ -151,6 +170,9 @@ void Allocator_free(Allocator *p_allocator, void *p_data) {
       return;
     }
   }
+
+  // If we get here, the pointer wasn't found in our blocks
+  fprintf(stderr, "Warning: Attempted to free untracked pointer %p\n", p_data);
 }
 
 void Allocator_free_all(Allocator *p_allocator) {
@@ -165,6 +187,7 @@ void Allocator_free_all(Allocator *p_allocator) {
     } else if (p_allocator->p_blocks[i].dealloc) {
       p_allocator->p_blocks[i].dealloc(p_allocator->p_blocks[i].p_data);
     }
+    p_allocator->p_blocks[i].p_data = NULL;
   }
 
   if (p_allocator->p_blocks) {
@@ -188,6 +211,12 @@ void Allocator_free_everything(Allocator *p_allocator) {
   if (!p_allocator) {
     return;
   }
+  if (p_allocator->u_ref_count > 1) {
+    assert(false &&
+           "Cannot free an allocator with multiple references.\n Hint: Use "
+           "CUTIL_AUTO_CLEANUP to automatically free the allocator when the "
+           "creator goes out of scope. \n (Not available in MSVC)");
+  }
 
   Allocator_free_all(p_allocator);
 
@@ -198,7 +227,6 @@ void Allocator_free_everything(Allocator *p_allocator) {
   } else if (p_allocator->type == PAGE_ALLOCATOR) {
     page_free(p_allocator, sizeof(Allocator), 1);
   }
-  // Stack allocator does not need to be freed
 }
 
 void *Allocator_alloc_2(Allocator *p_allocator, size_t u_size) {
@@ -221,7 +249,25 @@ void *Allocator_alloc_4(Allocator *p_allocator, size_t u_size, size_t u_amount,
     return NULL;
   }
 
-  void *p_data = p_allocator->alloc(u_size * u_amount, 1);
+  size_t total_size = u_size * u_amount;
+  size_t alloc_size = total_size;
+  void *p_data;
+
+  if (p_allocator->type == PAGE_ALLOCATOR) {
+#ifdef _WIN32
+    SYSTEM_INFO si;
+    GetSystemInfo(&si);
+    size_t page_size = si.dwPageSize;
+#else
+    size_t page_size = sysconf(_SC_PAGESIZE);
+#endif
+    alloc_size = (total_size + page_size - 1) &
+                 ~(page_size - 1); // Round up to nearest page size
+    p_data = page_alloc(alloc_size, 1);
+  } else {
+    p_data = p_allocator->alloc(total_size, 1);
+  }
+
   if (!p_data) {
     return NULL;
   }
@@ -231,7 +277,7 @@ void *Allocator_alloc_4(Allocator *p_allocator, size_t u_size, size_t u_amount,
     if (p_allocator->blocks_size == p_allocator->blocks_capacity) {
       // If _grow_blocks_array failed, free the allocated memory and return NULL
       if (p_allocator->type == PAGE_ALLOCATOR) {
-        page_free(p_data, u_size * u_amount, 1);
+        page_free(p_data, alloc_size, 1);
       } else if (dealloc) {
         dealloc(p_data);
       }
@@ -240,11 +286,13 @@ void *Allocator_alloc_4(Allocator *p_allocator, size_t u_size, size_t u_amount,
   }
 
   Allocated_Block new_block = {
-      .p_data = p_data, .u_size = u_size * u_amount, .dealloc = dealloc};
+      .p_data = p_data,
+      .u_size = alloc_size, // Store the actual allocated size
+      .dealloc = dealloc};
 
   p_allocator->p_blocks[p_allocator->blocks_size++] = new_block;
-  p_allocator->u_size += u_size * u_amount;
-  p_allocator->u_used += u_size * u_amount;
+  p_allocator->u_size += alloc_size;
+  p_allocator->u_used += total_size;
 
   return p_data;
 }
@@ -280,4 +328,30 @@ void *Allocator_realloc(Allocator *p_allocator, void *p_data, size_t u_size) {
 
   // If we get here, the data wasn't found in our blocks
   return NULL;
+}
+
+Allocator *Allocator_incref(Allocator *p_allocator) {
+  if (!p_allocator) {
+    return NULL;
+  }
+  p_allocator->u_ref_count++;
+  return p_allocator;
+}
+
+Allocator *Allocator_decref(Allocator *p_allocator) {
+  if (!p_allocator) {
+    return NULL;
+  }
+  if (p_allocator->u_ref_count > 1) {
+    p_allocator->u_ref_count--;
+  } else {
+    Allocator_free_everything(p_allocator);
+    return NULL;
+  }
+  return p_allocator;
+}
+
+Allocator *Allocator_move(Allocator *p_allocator) {
+  p_allocator->u_ref_count = 1;
+  return p_allocator;
 }

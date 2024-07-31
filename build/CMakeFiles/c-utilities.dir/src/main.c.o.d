@@ -66,8 +66,8 @@ CMakeFiles/c-utilities.dir/src/main.c.o: \
  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
  /home/chase/Projects/C/c-utilities/src/../tests/../src/util/macros.h \
- /home/chase/Projects/C/c-utilities/src/../tests/../src/util/types.h \
  /home/chase/Projects/C/c-utilities/src/../tests/../src/util/system.h \
+ /home/chase/Projects/C/c-utilities/src/../tests/../src/util/types.h \
  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
@@ -75,4 +75,8 @@ CMakeFiles/c-utilities.dir/src/main.c.o: \
  /home/chase/Projects/C/c-utilities/src/../tests/../src/util/alloc.h \
  /home/chase/Projects/C/c-utilities/src/../tests/../src/util/mem.h \
  /home/chase/Projects/C/c-utilities/src/../tests/../src/util/pch.h \
- /home/chase/Projects/C/c-utilities/src/../tests/../src/util/container.h
+ /home/chase/Projects/C/c-utilities/src/../tests/../src/util/container.h \
+ /home/chase/Projects/C/c-utilities/src/util/system.h /usr/include/time.h \
+ /usr/include/x86_64-linux-gnu/bits/time.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h

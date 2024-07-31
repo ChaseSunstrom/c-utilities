@@ -79,8 +79,8 @@ CMakeFiles/c-utilities.dir/src/main.c.o
  /usr/include/x86_64-linux-gnu/bits/getopt_core.h
  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h
  /home/chase/Projects/C/c-utilities/src/util/macros.h
- /home/chase/Projects/C/c-utilities/src/util/types.h
  /home/chase/Projects/C/c-utilities/src/util/system.h
+ /home/chase/Projects/C/c-utilities/src/util/types.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h
  /usr/include/stdint.h
  /usr/include/x86_64-linux-gnu/bits/wchar.h
@@ -90,6 +90,11 @@ CMakeFiles/c-utilities.dir/src/main.c.o
  /home/chase/Projects/C/c-utilities/src/util/mem.h
  /home/chase/Projects/C/c-utilities/src/util/pch.h
  /home/chase/Projects/C/c-utilities/src/util/container.h
+ /home/chase/Projects/C/c-utilities/src/util/system.h
+ /usr/include/time.h
+ /usr/include/x86_64-linux-gnu/bits/time.h
+ /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h
+ /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h
 
 CMakeFiles/c-utilities.dir/src/util/alloc.c.o
  /home/chase/Projects/C/c-utilities/src/util/alloc.c
@@ -170,8 +175,8 @@ CMakeFiles/c-utilities.dir/src/util/alloc.c.o
  /usr/include/x86_64-linux-gnu/bits/getopt_core.h
  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h
  /home/chase/Projects/C/c-utilities/src/util/macros.h
- /home/chase/Projects/C/c-utilities/src/util/types.h
  /home/chase/Projects/C/c-utilities/src/util/system.h
+ /home/chase/Projects/C/c-utilities/src/util/types.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h
  /usr/include/stdint.h
  /usr/include/x86_64-linux-gnu/bits/wchar.h
@@ -257,8 +262,8 @@ CMakeFiles/c-utilities.dir/src/util/container.c.o
  /usr/include/x86_64-linux-gnu/bits/getopt_core.h
  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h
  /home/chase/Projects/C/c-utilities/src/util/macros.h
- /home/chase/Projects/C/c-utilities/src/util/types.h
  /home/chase/Projects/C/c-utilities/src/util/system.h
+ /home/chase/Projects/C/c-utilities/src/util/types.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h
  /usr/include/stdint.h
  /usr/include/x86_64-linux-gnu/bits/wchar.h
@@ -342,8 +347,8 @@ CMakeFiles/c-utilities.dir/src/util/error.c.o
  /usr/include/x86_64-linux-gnu/bits/getopt_core.h
  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h
  /home/chase/Projects/C/c-utilities/src/util/macros.h
- /home/chase/Projects/C/c-utilities/src/util/types.h
  /home/chase/Projects/C/c-utilities/src/util/system.h
+ /home/chase/Projects/C/c-utilities/src/util/types.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h
  /usr/include/stdint.h
  /usr/include/x86_64-linux-gnu/bits/wchar.h
@@ -427,8 +432,8 @@ CMakeFiles/c-utilities.dir/src/util/mem.c.o
  /usr/include/x86_64-linux-gnu/bits/getopt_core.h
  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h
  /home/chase/Projects/C/c-utilities/src/util/macros.h
- /home/chase/Projects/C/c-utilities/src/util/types.h
  /home/chase/Projects/C/c-utilities/src/util/system.h
+ /home/chase/Projects/C/c-utilities/src/util/types.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h
  /usr/include/stdint.h
  /usr/include/x86_64-linux-gnu/bits/wchar.h
@@ -514,8 +519,8 @@ CMakeFiles/c-utilities.dir/src/util/result.c.o
  /usr/include/x86_64-linux-gnu/bits/getopt_core.h
  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h
  /home/chase/Projects/C/c-utilities/src/util/macros.h
- /home/chase/Projects/C/c-utilities/src/util/types.h
  /home/chase/Projects/C/c-utilities/src/util/system.h
+ /home/chase/Projects/C/c-utilities/src/util/types.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h
  /usr/include/stdint.h
  /usr/include/x86_64-linux-gnu/bits/wchar.h
@@ -601,8 +606,8 @@ CMakeFiles/c-utilities.dir/src/util/vector.c.o
  /usr/include/x86_64-linux-gnu/bits/getopt_core.h
  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h
  /home/chase/Projects/C/c-utilities/src/util/macros.h
- /home/chase/Projects/C/c-utilities/src/util/types.h
  /home/chase/Projects/C/c-utilities/src/util/system.h
+ /home/chase/Projects/C/c-utilities/src/util/types.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h
  /usr/include/stdint.h
  /usr/include/x86_64-linux-gnu/bits/wchar.h
@@ -691,8 +696,8 @@ CMakeFiles/c-utilities.dir/tests/test_main.c.o
  /usr/include/x86_64-linux-gnu/bits/getopt_core.h
  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h
  /home/chase/Projects/C/c-utilities/src/util/macros.h
- /home/chase/Projects/C/c-utilities/src/util/types.h
  /home/chase/Projects/C/c-utilities/src/util/system.h
+ /home/chase/Projects/C/c-utilities/src/util/types.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h
  /usr/include/stdint.h
  /usr/include/x86_64-linux-gnu/bits/wchar.h
@@ -784,8 +789,8 @@ CMakeFiles/c-utilities.dir/tests/test_vector.c.o
  /usr/include/x86_64-linux-gnu/bits/getopt_core.h
  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h
  /home/chase/Projects/C/c-utilities/src/util/macros.h
- /home/chase/Projects/C/c-utilities/src/util/types.h
  /home/chase/Projects/C/c-utilities/src/util/system.h
+ /home/chase/Projects/C/c-utilities/src/util/types.h
  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h
  /usr/include/stdint.h
  /usr/include/x86_64-linux-gnu/bits/wchar.h

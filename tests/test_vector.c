@@ -11,12 +11,15 @@ bool test_vector_new() {
 }
 
 bool test_vector_push_back() {
-  Allocator* p_allocator = Allocator_new(GENERAL_ALLOCATOR);
+  Allocator* p_allocator = Allocator_new(PAGE_ALLOCATOR);
   Vector(i32) v = Vector_new(NULL, p_allocator);
-  i32 i = 1;
-  Vector_push_back(v, (void *)i);
+  for (size_t i = 0; i < 100; i++)
+    Vector_push_back(v, (void *)i);
+
+  for (size_t i = 0; i < 100; i++)
+    printf("%d\n",(intptr_t)Vector_at(v, i));
+
   bool result = (v->container->u_size == 1 && v->container->u_capacity == 4);
-  Allocator_free_everything(p_allocator);
   return result;
 }
 

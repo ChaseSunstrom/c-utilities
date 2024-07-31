@@ -79,8 +79,8 @@ void Vector_free(Vector *p_vector) {
   if ((allocator->type == GENERAL_ALLOCATOR ||
        allocator->type == PAGE_ALLOCATOR) &&
       !b_external_allocator) {
-    Allocator_free_all(allocator);
-    free(allocator); // Assuming allocator was created with malloc
+    Allocator_free_everything(
+        allocator); // Assuming allocator was created with malloc
   }
 }
 

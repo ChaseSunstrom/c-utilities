@@ -91,22 +91,26 @@ void Container_insert(Container *p_container, size_t u_index, void *p_elem) {
     return;
   }
 
-  if (p_container->u_size == p_container->u_capacity) {
+  // Check if we need to resize
+  if (p_container->u_size >= p_container->u_capacity) {
     size_t new_capacity =
         p_container->u_capacity ? p_container->u_capacity * 2 : 4;
     void **new_data =
         Allocator_realloc(p_container->p_allocator, p_container->p_data,
                           sizeof(void *) * new_capacity);
     if (!new_data) {
-      return;
+      return; // Reallocation failed
     }
     p_container->p_data = new_data;
     p_container->u_capacity = new_capacity;
   }
 
+  // Shift elements to make space for the new element
   for (size_t i = p_container->u_size; i > u_index; i--) {
     p_container->p_data[i] = p_container->p_data[i - 1];
   }
+
+  // Insert the new element
   p_container->p_data[u_index] = p_elem;
   p_container->u_size++;
 }
