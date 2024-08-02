@@ -181,10 +181,24 @@ CMakeFiles/c-utilities.dir/src/util/list.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/c-utilities.dir/src/util/list.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/chase/Projects/C/c-utilities/src/util/list.c -o CMakeFiles/c-utilities.dir/src/util/list.c.s
 
+CMakeFiles/c-utilities.dir/src/util/tree.c.o: CMakeFiles/c-utilities.dir/flags.make
+CMakeFiles/c-utilities.dir/src/util/tree.c.o: /home/chase/Projects/C/c-utilities/src/util/tree.c
+CMakeFiles/c-utilities.dir/src/util/tree.c.o: CMakeFiles/c-utilities.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chase/Projects/C/c-utilities/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/c-utilities.dir/src/util/tree.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/c-utilities.dir/src/util/tree.c.o -MF CMakeFiles/c-utilities.dir/src/util/tree.c.o.d -o CMakeFiles/c-utilities.dir/src/util/tree.c.o -c /home/chase/Projects/C/c-utilities/src/util/tree.c
+
+CMakeFiles/c-utilities.dir/src/util/tree.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/c-utilities.dir/src/util/tree.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/chase/Projects/C/c-utilities/src/util/tree.c > CMakeFiles/c-utilities.dir/src/util/tree.c.i
+
+CMakeFiles/c-utilities.dir/src/util/tree.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/c-utilities.dir/src/util/tree.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/chase/Projects/C/c-utilities/src/util/tree.c -o CMakeFiles/c-utilities.dir/src/util/tree.c.s
+
 CMakeFiles/c-utilities.dir/src/util/queue.c.o: CMakeFiles/c-utilities.dir/flags.make
 CMakeFiles/c-utilities.dir/src/util/queue.c.o: /home/chase/Projects/C/c-utilities/src/util/queue.c
 CMakeFiles/c-utilities.dir/src/util/queue.c.o: CMakeFiles/c-utilities.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chase/Projects/C/c-utilities/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/c-utilities.dir/src/util/queue.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chase/Projects/C/c-utilities/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/c-utilities.dir/src/util/queue.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/c-utilities.dir/src/util/queue.c.o -MF CMakeFiles/c-utilities.dir/src/util/queue.c.o.d -o CMakeFiles/c-utilities.dir/src/util/queue.c.o -c /home/chase/Projects/C/c-utilities/src/util/queue.c
 
 CMakeFiles/c-utilities.dir/src/util/queue.c.i: cmake_force
@@ -198,7 +212,7 @@ CMakeFiles/c-utilities.dir/src/util/queue.c.s: cmake_force
 CMakeFiles/c-utilities.dir/src/util/dequeue.c.o: CMakeFiles/c-utilities.dir/flags.make
 CMakeFiles/c-utilities.dir/src/util/dequeue.c.o: /home/chase/Projects/C/c-utilities/src/util/dequeue.c
 CMakeFiles/c-utilities.dir/src/util/dequeue.c.o: CMakeFiles/c-utilities.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chase/Projects/C/c-utilities/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/c-utilities.dir/src/util/dequeue.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chase/Projects/C/c-utilities/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/c-utilities.dir/src/util/dequeue.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/c-utilities.dir/src/util/dequeue.c.o -MF CMakeFiles/c-utilities.dir/src/util/dequeue.c.o.d -o CMakeFiles/c-utilities.dir/src/util/dequeue.c.o -c /home/chase/Projects/C/c-utilities/src/util/dequeue.c
 
 CMakeFiles/c-utilities.dir/src/util/dequeue.c.i: cmake_force
@@ -212,7 +226,7 @@ CMakeFiles/c-utilities.dir/src/util/dequeue.c.s: cmake_force
 CMakeFiles/c-utilities.dir/src/util/stack.c.o: CMakeFiles/c-utilities.dir/flags.make
 CMakeFiles/c-utilities.dir/src/util/stack.c.o: /home/chase/Projects/C/c-utilities/src/util/stack.c
 CMakeFiles/c-utilities.dir/src/util/stack.c.o: CMakeFiles/c-utilities.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chase/Projects/C/c-utilities/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/c-utilities.dir/src/util/stack.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chase/Projects/C/c-utilities/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/c-utilities.dir/src/util/stack.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/c-utilities.dir/src/util/stack.c.o -MF CMakeFiles/c-utilities.dir/src/util/stack.c.o.d -o CMakeFiles/c-utilities.dir/src/util/stack.c.o -c /home/chase/Projects/C/c-utilities/src/util/stack.c
 
 CMakeFiles/c-utilities.dir/src/util/stack.c.i: cmake_force
@@ -226,7 +240,7 @@ CMakeFiles/c-utilities.dir/src/util/stack.c.s: cmake_force
 CMakeFiles/c-utilities.dir/tests/test_main.c.o: CMakeFiles/c-utilities.dir/flags.make
 CMakeFiles/c-utilities.dir/tests/test_main.c.o: /home/chase/Projects/C/c-utilities/tests/test_main.c
 CMakeFiles/c-utilities.dir/tests/test_main.c.o: CMakeFiles/c-utilities.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chase/Projects/C/c-utilities/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/c-utilities.dir/tests/test_main.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chase/Projects/C/c-utilities/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/c-utilities.dir/tests/test_main.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/c-utilities.dir/tests/test_main.c.o -MF CMakeFiles/c-utilities.dir/tests/test_main.c.o.d -o CMakeFiles/c-utilities.dir/tests/test_main.c.o -c /home/chase/Projects/C/c-utilities/tests/test_main.c
 
 CMakeFiles/c-utilities.dir/tests/test_main.c.i: cmake_force
@@ -240,7 +254,7 @@ CMakeFiles/c-utilities.dir/tests/test_main.c.s: cmake_force
 CMakeFiles/c-utilities.dir/tests/test_vector.c.o: CMakeFiles/c-utilities.dir/flags.make
 CMakeFiles/c-utilities.dir/tests/test_vector.c.o: /home/chase/Projects/C/c-utilities/tests/test_vector.c
 CMakeFiles/c-utilities.dir/tests/test_vector.c.o: CMakeFiles/c-utilities.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chase/Projects/C/c-utilities/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/c-utilities.dir/tests/test_vector.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chase/Projects/C/c-utilities/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/c-utilities.dir/tests/test_vector.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/c-utilities.dir/tests/test_vector.c.o -MF CMakeFiles/c-utilities.dir/tests/test_vector.c.o.d -o CMakeFiles/c-utilities.dir/tests/test_vector.c.o -c /home/chase/Projects/C/c-utilities/tests/test_vector.c
 
 CMakeFiles/c-utilities.dir/tests/test_vector.c.i: cmake_force
@@ -254,7 +268,7 @@ CMakeFiles/c-utilities.dir/tests/test_vector.c.s: cmake_force
 CMakeFiles/c-utilities.dir/tests/test_list.c.o: CMakeFiles/c-utilities.dir/flags.make
 CMakeFiles/c-utilities.dir/tests/test_list.c.o: /home/chase/Projects/C/c-utilities/tests/test_list.c
 CMakeFiles/c-utilities.dir/tests/test_list.c.o: CMakeFiles/c-utilities.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chase/Projects/C/c-utilities/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/c-utilities.dir/tests/test_list.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chase/Projects/C/c-utilities/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/c-utilities.dir/tests/test_list.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/c-utilities.dir/tests/test_list.c.o -MF CMakeFiles/c-utilities.dir/tests/test_list.c.o.d -o CMakeFiles/c-utilities.dir/tests/test_list.c.o -c /home/chase/Projects/C/c-utilities/tests/test_list.c
 
 CMakeFiles/c-utilities.dir/tests/test_list.c.i: cmake_force
@@ -268,7 +282,7 @@ CMakeFiles/c-utilities.dir/tests/test_list.c.s: cmake_force
 CMakeFiles/c-utilities.dir/tests/test_allocator.c.o: CMakeFiles/c-utilities.dir/flags.make
 CMakeFiles/c-utilities.dir/tests/test_allocator.c.o: /home/chase/Projects/C/c-utilities/tests/test_allocator.c
 CMakeFiles/c-utilities.dir/tests/test_allocator.c.o: CMakeFiles/c-utilities.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chase/Projects/C/c-utilities/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/c-utilities.dir/tests/test_allocator.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chase/Projects/C/c-utilities/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/c-utilities.dir/tests/test_allocator.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/c-utilities.dir/tests/test_allocator.c.o -MF CMakeFiles/c-utilities.dir/tests/test_allocator.c.o.d -o CMakeFiles/c-utilities.dir/tests/test_allocator.c.o -c /home/chase/Projects/C/c-utilities/tests/test_allocator.c
 
 CMakeFiles/c-utilities.dir/tests/test_allocator.c.i: cmake_force
@@ -289,6 +303,7 @@ c__utilities_OBJECTS = \
 "CMakeFiles/c-utilities.dir/src/util/alloc.c.o" \
 "CMakeFiles/c-utilities.dir/src/util/container.c.o" \
 "CMakeFiles/c-utilities.dir/src/util/list.c.o" \
+"CMakeFiles/c-utilities.dir/src/util/tree.c.o" \
 "CMakeFiles/c-utilities.dir/src/util/queue.c.o" \
 "CMakeFiles/c-utilities.dir/src/util/dequeue.c.o" \
 "CMakeFiles/c-utilities.dir/src/util/stack.c.o" \
@@ -308,6 +323,7 @@ c-utilities: CMakeFiles/c-utilities.dir/src/util/mem.c.o
 c-utilities: CMakeFiles/c-utilities.dir/src/util/alloc.c.o
 c-utilities: CMakeFiles/c-utilities.dir/src/util/container.c.o
 c-utilities: CMakeFiles/c-utilities.dir/src/util/list.c.o
+c-utilities: CMakeFiles/c-utilities.dir/src/util/tree.c.o
 c-utilities: CMakeFiles/c-utilities.dir/src/util/queue.c.o
 c-utilities: CMakeFiles/c-utilities.dir/src/util/dequeue.c.o
 c-utilities: CMakeFiles/c-utilities.dir/src/util/stack.c.o
@@ -317,7 +333,7 @@ c-utilities: CMakeFiles/c-utilities.dir/tests/test_list.c.o
 c-utilities: CMakeFiles/c-utilities.dir/tests/test_allocator.c.o
 c-utilities: CMakeFiles/c-utilities.dir/build.make
 c-utilities: CMakeFiles/c-utilities.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/chase/Projects/C/c-utilities/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking C executable c-utilities"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/chase/Projects/C/c-utilities/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking C executable c-utilities"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/c-utilities.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

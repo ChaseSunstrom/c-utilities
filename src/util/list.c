@@ -41,6 +41,17 @@ List *List_new_4(void *p_arr_data, size_t u_arr_size,
   return p_list;
 }
 
+#if CUTIL_AUTO_CLEANUP_TYPES
+void List_free_(List **pp_list) {
+  if (!pp_list) {
+    return;
+  }
+
+  List_free(*pp_list);
+  *pp_list = NULL;
+}
+#endif
+
 void List_free(List *p_list) {
   if (!p_list) {
     return;
@@ -57,15 +68,6 @@ void List_free(List *p_list) {
   if (!p_list->b_external_allocator) {
     Allocator_free_everything(p_list->p_allocator);
   }
-}
-
-void List_free_(List **pp_list) {
-  if (!pp_list) {
-    return;
-  }
-
-  List_free(*pp_list);
-  *pp_list = NULL;
 }
 
 void List_push_back(List *p_list, void *p_data) {

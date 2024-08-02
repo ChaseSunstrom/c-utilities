@@ -25,6 +25,16 @@ Queue *Queue_new_2(void (*destructor)(void *), Allocator *p_allocator) {
   return p_queue;
 }
 
+#if CUTIL_AUTO_CLEANUP_TYPES
+void Queue_free_(Queue **p_queue) {
+  if (!p_queue) {
+    return;
+  }
+  Queue_free(*p_queue);
+  *p_queue = NULL;
+}
+#endif
+
 void Queue_free(Queue *p_queue) {
   if (!p_queue) {
     return;
@@ -38,14 +48,6 @@ void Queue_free(Queue *p_queue) {
   if (!b_external_allocator) {
     Allocator_free_everything(p_queue->p_container->p_allocator);
   }
-}
-
-void Queue_free_(Queue **p_queue) {
-  if (!p_queue) {
-    return;
-  }
-  Queue_free(*p_queue);
-  *p_queue = NULL;
 }
 
 void Queue_enqueue(Queue *p_queue, void *p_data) {

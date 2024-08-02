@@ -44,7 +44,6 @@ void *page_alloc(size_t u_size, size_t u_amount) {
     p_ptr = (size_t *)p_ptr + 1;
   }
 #endif
-
   return p_ptr;
 }
 

@@ -40,6 +40,7 @@ void Stack_free(Stack *p_stack) {
   }
 }
 
+#if CUTIL_AUTO_CLEANUP_TYPES
 void Stack_free_(Stack **p_stack) {
   if (!p_stack) {
     return;
@@ -47,6 +48,7 @@ void Stack_free_(Stack **p_stack) {
   Stack_free(*p_stack);
   *p_stack = NULL;
 }
+#endif
 
 void Stack_push(Stack *p_stack, void *p_data) {
   if (!p_stack) {

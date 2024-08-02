@@ -24,6 +24,8 @@ add_executable(
   src/util/container.c
   src/util/list.h
   src/util/list.c
+  src/util/tree.h
+  src/util/tree.c
   src/util/queue.h
   src/util/queue.c
   src/util/dequeue.h

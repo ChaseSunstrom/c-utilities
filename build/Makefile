@@ -369,6 +369,30 @@ src/util/stack.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/stack.c.s
 .PHONY : src/util/stack.c.s
 
+src/util/tree.o: src/util/tree.c.o
+.PHONY : src/util/tree.o
+
+# target to build an object file
+src/util/tree.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/tree.c.o
+.PHONY : src/util/tree.c.o
+
+src/util/tree.i: src/util/tree.c.i
+.PHONY : src/util/tree.i
+
+# target to preprocess a source file
+src/util/tree.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/tree.c.i
+.PHONY : src/util/tree.c.i
+
+src/util/tree.s: src/util/tree.c.s
+.PHONY : src/util/tree.s
+
+# target to generate assembly for a file
+src/util/tree.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/tree.c.s
+.PHONY : src/util/tree.c.s
+
 src/util/vector.o: src/util/vector.c.o
 .PHONY : src/util/vector.o
 
@@ -528,6 +552,9 @@ help:
 	@echo "... src/util/stack.o"
 	@echo "... src/util/stack.i"
 	@echo "... src/util/stack.s"
+	@echo "... src/util/tree.o"
+	@echo "... src/util/tree.i"
+	@echo "... src/util/tree.s"
 	@echo "... src/util/vector.o"
 	@echo "... src/util/vector.i"
 	@echo "... src/util/vector.s"

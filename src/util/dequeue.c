@@ -40,6 +40,7 @@ void Dequeue_free(Dequeue *p_dequeue) {
   }
 }
 
+#if CUTIL_AUTO_CLEANUP_TYPES
 void Dequeue_free_(Dequeue **p_dequeue) {
   if (!p_dequeue) {
     return;
@@ -47,6 +48,7 @@ void Dequeue_free_(Dequeue **p_dequeue) {
   Dequeue_free(*p_dequeue);
   *p_dequeue = NULL;
 }
+#endif
 
 void Dequeue_push_front(Dequeue *p_dequeue, void *p_data) {
   if (!p_dequeue) {
