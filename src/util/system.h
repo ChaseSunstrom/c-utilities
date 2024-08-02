@@ -49,14 +49,14 @@
 
 #ifdef CUTIL_DONT_AUTO_CLEANUP_TYPES
 #define CUTIL_AUTO_CLEANUP_TYPES 0
-#define AUTO_CLEANUP(_cleanup)
+#define defer(_cleanup)
 #else
 #if CUTIL_GCC
 #define CUTIL_AUTO_CLEANUP_TYPES 1
-#define CUTIL_AUTO_CLEANUP(_cleanup) __attribute__((cleanup(_cleanup)))
+#define defer(_cleanup) __attribute__((cleanup(_cleanup)))
 #else
 #define CUTIL_AUTO_CLEANUP_TYPES 0
-#define CUTIL_AUTO_CLEANUP(_cleanup)
+#define defer(_cleanup)
 #endif
 #endif
 

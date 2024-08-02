@@ -19,7 +19,7 @@ typedef struct {
   Allocator *p_allocator;
 } Tree;
 
-#define Tree(type) CUTIL_AUTO_CLEANUP(Tree_free_) Tree *
+#define Tree(type) defer(Tree_free_) Tree *
 #define Tree_new(...) CONCAT(Tree_new_, NARGS(__VA_ARGS__))(__VA_ARGS__)
 
 void Tree_free_node(Tree_Node *p_node, void (*destructor)(void *),

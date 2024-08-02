@@ -19,7 +19,7 @@ typedef struct {
   Allocator *p_allocator;
 } List;
 
-#define List(type) CUTIL_AUTO_CLEANUP(List_free_) List *
+#define List(type) defer(List_free_) List *
 #define List_new(...) CONCAT(List_new_, NARGS(__VA_ARGS__))(__VA_ARGS__)
 
 List *List_new_1(Allocator *p_allocator);

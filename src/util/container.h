@@ -17,7 +17,7 @@ typedef struct {
 #endif
 } Container;
 
-#define Container(type) CUTIL_AUTO_CLEANUP(Container_free_) Container *
+#define Container(type) defer(Container_free_) Container *
 
 Container *Container_new(void *p_data, size_t u_data_size, size_t u_capacity,
                          void (*destructor)(void *), Allocator *p_allocator);

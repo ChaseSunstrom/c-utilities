@@ -369,6 +369,30 @@ src/util/stack.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/stack.c.s
 .PHONY : src/util/stack.c.s
 
+src/util/string.o: src/util/string.c.o
+.PHONY : src/util/string.o
+
+# target to build an object file
+src/util/string.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/string.c.o
+.PHONY : src/util/string.c.o
+
+src/util/string.i: src/util/string.c.i
+.PHONY : src/util/string.i
+
+# target to preprocess a source file
+src/util/string.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/string.c.i
+.PHONY : src/util/string.c.i
+
+src/util/string.s: src/util/string.c.s
+.PHONY : src/util/string.s
+
+# target to generate assembly for a file
+src/util/string.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/string.c.s
+.PHONY : src/util/string.c.s
+
 src/util/tree.o: src/util/tree.c.o
 .PHONY : src/util/tree.o
 
@@ -552,6 +576,9 @@ help:
 	@echo "... src/util/stack.o"
 	@echo "... src/util/stack.i"
 	@echo "... src/util/stack.s"
+	@echo "... src/util/string.o"
+	@echo "... src/util/string.i"
+	@echo "... src/util/string.s"
 	@echo "... src/util/tree.o"
 	@echo "... src/util/tree.i"
 	@echo "... src/util/tree.s"

@@ -27,6 +27,8 @@ add_executable(
   src/util/tree.h
   src/util/tree.c
   src/util/queue.h
+  src/util/string.h
+  src/util/string.c
   src/util/queue.c
   src/util/dequeue.h
   src/util/dequeue.c

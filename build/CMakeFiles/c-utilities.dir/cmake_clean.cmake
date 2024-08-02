@@ -19,6 +19,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/c-utilities.dir/src/util/result.c.o.d"
   "CMakeFiles/c-utilities.dir/src/util/stack.c.o"
   "CMakeFiles/c-utilities.dir/src/util/stack.c.o.d"
+  "CMakeFiles/c-utilities.dir/src/util/string.c.o"
+  "CMakeFiles/c-utilities.dir/src/util/string.c.o.d"
   "CMakeFiles/c-utilities.dir/src/util/tree.c.o"
   "CMakeFiles/c-utilities.dir/src/util/tree.c.o.d"
   "CMakeFiles/c-utilities.dir/src/util/vector.c.o"

@@ -18,6 +18,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/chase/Projects/C/c-utilities/src/util/queue.c" "CMakeFiles/c-utilities.dir/src/util/queue.c.o" "gcc" "CMakeFiles/c-utilities.dir/src/util/queue.c.o.d"
   "/home/chase/Projects/C/c-utilities/src/util/result.c" "CMakeFiles/c-utilities.dir/src/util/result.c.o" "gcc" "CMakeFiles/c-utilities.dir/src/util/result.c.o.d"
   "/home/chase/Projects/C/c-utilities/src/util/stack.c" "CMakeFiles/c-utilities.dir/src/util/stack.c.o" "gcc" "CMakeFiles/c-utilities.dir/src/util/stack.c.o.d"
+  "/home/chase/Projects/C/c-utilities/src/util/string.c" "CMakeFiles/c-utilities.dir/src/util/string.c.o" "gcc" "CMakeFiles/c-utilities.dir/src/util/string.c.o.d"
   "/home/chase/Projects/C/c-utilities/src/util/tree.c" "CMakeFiles/c-utilities.dir/src/util/tree.c.o" "gcc" "CMakeFiles/c-utilities.dir/src/util/tree.c.o.d"
   "/home/chase/Projects/C/c-utilities/src/util/vector.c" "CMakeFiles/c-utilities.dir/src/util/vector.c.o" "gcc" "CMakeFiles/c-utilities.dir/src/util/vector.c.o.d"
   "/home/chase/Projects/C/c-utilities/tests/test_allocator.c" "CMakeFiles/c-utilities.dir/tests/test_allocator.c.o" "gcc" "CMakeFiles/c-utilities.dir/tests/test_allocator.c.o.d"

@@ -8,7 +8,7 @@ typedef struct {
   Container *p_container;
 } Stack;
 
-#define Stack(type) CUTIL_AUTO_CLEANUP(Stack_free_) Stack *
+#define Stack(type) defer(Stack_free_) Stack *
 #define Stack_new(...) CONCAT(Stack_new_, NARGS(__VA_ARGS__))(__VA_ARGS__)
 
 Stack *Stack_new_1(Allocator *p_allocator);

@@ -9,11 +9,8 @@ void log_time(f64 start, f64 end, const char *message) {
   printf("Time: %f, Allocator: %s\n", end - start, message);
 }
 
-void dummy(CUTIL_AUTO_CLEANUP(Allocator_free_) Allocator *allocator) {}
-
 f64 test_allocator(Alloc_T alloc_type) {
-  CUTIL_AUTO_CLEANUP(Allocator_free_)
-  Allocator *allocator = Allocator_new(alloc_type);
+  defer(Allocator_free_) Allocator *allocator = Allocator_new(alloc_type);
   Vector *v = Vector_new(allocator);
   f64 start = get_time();
   for (i64 i = 0; i < 100000000; i++) {

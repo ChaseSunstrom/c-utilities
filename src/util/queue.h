@@ -8,7 +8,7 @@ typedef struct {
   Container *p_container;
 } Queue;
 
-#define Queue(type) CUTIL_AUTO_CLEANUP(Queue_free_) Queue *
+#define Queue(type) defer(Queue_free_) Queue *
 #define Queue_new(...) CONCAT(Queue_new_, NARGS(__VA_ARGS__))(__VA_ARGS__)
 
 Queue *Queue_new_1(Allocator *p_allocator);

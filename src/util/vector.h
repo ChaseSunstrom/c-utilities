@@ -10,7 +10,7 @@ typedef struct {
   Container *container;
 } Vector;
 
-#define Vector(type) CUTIL_AUTO_CLEANUP(Vector_free_) Vector *
+#define Vector(type) defer(Vector_free_) Vector *
 #define Vector_new(...) CONCAT(Vector_new_, NARGS(__VA_ARGS__))(__VA_ARGS__)
 
 Vector *Vector_new_1(Allocator *p_allocator);
