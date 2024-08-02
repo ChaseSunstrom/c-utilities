@@ -130,7 +130,7 @@ void Vector_pop_back(Vector *p_vector) {
     return;
   }
 
-  Container_remove(p_vector->container, p_vector->container->u_size - 1);
+  Container_erase(p_vector->container, p_vector->container->u_size - 1);
 }
 
 void Vector_insert(Vector *p_vector, size_t u_index, void *p_elem) {
@@ -153,23 +153,21 @@ void Vector_erase(Vector *p_vector, size_t u_index) {
   p_vector->container->u_size--;
 }
 
-void Vector_clear(Vector *p_vector) {
+void Vector_remove(Vector *p_vector, size_t u_index) {
   if (!p_vector) {
     return;
   }
 
-  if (p_vector->container->destructor) {
-    for (size_t i = 0; i < p_vector->container->u_size; i++) {
-      if (p_vector->container->p_data[i]) {
-        p_vector->container->destructor(p_vector->container->p_data[i]);
-        p_vector->container->p_data[i] = NULL;
-      }
-    }
-  }
+  Container_remove(p_vector->container, u_index);
+}
 
-  p_vector->container->u_size = 0;
+void Vector_clear(Vector *p_vector) {
+  if (!p_vector) {
+    return;
+  }
+  Container_clear(p_vector->container);
 }
 
 bool Vector_empty(Vector *p_vector) {
-  return p_vector && p_vector->container->u_size == 0;
+  return !p_vector || !p_vector->container->u_size;
 }

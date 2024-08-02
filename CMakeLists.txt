@@ -24,6 +24,12 @@ add_executable(
   src/util/container.c
   src/util/list.h
   src/util/list.c
+  src/util/queue.h
+  src/util/queue.c
+  src/util/dequeue.h
+  src/util/dequeue.c
+  src/util/stack.h
+  src/util/stack.c
   tests/test_main.h
   tests/test_main.c
   tests/test_vector.c

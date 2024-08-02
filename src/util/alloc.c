@@ -148,7 +148,10 @@ void Allocator_free_(Allocator **pp_allocator) {
 #endif
 
 void Allocator_free(Allocator *p_allocator, void *p_data) {
-  if (!p_allocator || !p_data) {
+  // Optimizes for the ARENA_ALLOCATOR case
+  // To prevent accidently freeing memory that should be freed at once
+  // Such as in the case of a Vector
+  if (!p_allocator || !p_data || p_allocator->type == ARENA_ALLOCATOR) {
     return;
   }
 

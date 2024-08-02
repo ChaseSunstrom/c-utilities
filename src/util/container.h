@@ -27,5 +27,6 @@ void Container_free_(Container **pp_container);
 void Container_insert(Container *p_container, size_t u_index, void *p_elem);
 void Container_erase(Container *p_container, size_t u_index);
 void Container_remove(Container *p_container, size_t u_index);
+void Container_clear(Container *p_container);
 
 #endif

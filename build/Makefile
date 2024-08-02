@@ -201,6 +201,30 @@ src/util/container.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/container.c.s
 .PHONY : src/util/container.c.s
 
+src/util/dequeue.o: src/util/dequeue.c.o
+.PHONY : src/util/dequeue.o
+
+# target to build an object file
+src/util/dequeue.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/dequeue.c.o
+.PHONY : src/util/dequeue.c.o
+
+src/util/dequeue.i: src/util/dequeue.c.i
+.PHONY : src/util/dequeue.i
+
+# target to preprocess a source file
+src/util/dequeue.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/dequeue.c.i
+.PHONY : src/util/dequeue.c.i
+
+src/util/dequeue.s: src/util/dequeue.c.s
+.PHONY : src/util/dequeue.s
+
+# target to generate assembly for a file
+src/util/dequeue.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/dequeue.c.s
+.PHONY : src/util/dequeue.c.s
+
 src/util/error.o: src/util/error.c.o
 .PHONY : src/util/error.o
 
@@ -273,6 +297,30 @@ src/util/mem.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/mem.c.s
 .PHONY : src/util/mem.c.s
 
+src/util/queue.o: src/util/queue.c.o
+.PHONY : src/util/queue.o
+
+# target to build an object file
+src/util/queue.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/queue.c.o
+.PHONY : src/util/queue.c.o
+
+src/util/queue.i: src/util/queue.c.i
+.PHONY : src/util/queue.i
+
+# target to preprocess a source file
+src/util/queue.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/queue.c.i
+.PHONY : src/util/queue.c.i
+
+src/util/queue.s: src/util/queue.c.s
+.PHONY : src/util/queue.s
+
+# target to generate assembly for a file
+src/util/queue.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/queue.c.s
+.PHONY : src/util/queue.c.s
+
 src/util/result.o: src/util/result.c.o
 .PHONY : src/util/result.o
 
@@ -296,6 +344,30 @@ src/util/result.s: src/util/result.c.s
 src/util/result.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/result.c.s
 .PHONY : src/util/result.c.s
+
+src/util/stack.o: src/util/stack.c.o
+.PHONY : src/util/stack.o
+
+# target to build an object file
+src/util/stack.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/stack.c.o
+.PHONY : src/util/stack.c.o
+
+src/util/stack.i: src/util/stack.c.i
+.PHONY : src/util/stack.i
+
+# target to preprocess a source file
+src/util/stack.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/stack.c.i
+.PHONY : src/util/stack.c.i
+
+src/util/stack.s: src/util/stack.c.s
+.PHONY : src/util/stack.s
+
+# target to generate assembly for a file
+src/util/stack.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/stack.c.s
+.PHONY : src/util/stack.c.s
 
 src/util/vector.o: src/util/vector.c.o
 .PHONY : src/util/vector.o
@@ -435,6 +507,9 @@ help:
 	@echo "... src/util/container.o"
 	@echo "... src/util/container.i"
 	@echo "... src/util/container.s"
+	@echo "... src/util/dequeue.o"
+	@echo "... src/util/dequeue.i"
+	@echo "... src/util/dequeue.s"
 	@echo "... src/util/error.o"
 	@echo "... src/util/error.i"
 	@echo "... src/util/error.s"
@@ -444,9 +519,15 @@ help:
 	@echo "... src/util/mem.o"
 	@echo "... src/util/mem.i"
 	@echo "... src/util/mem.s"
+	@echo "... src/util/queue.o"
+	@echo "... src/util/queue.i"
+	@echo "... src/util/queue.s"
 	@echo "... src/util/result.o"
 	@echo "... src/util/result.i"
 	@echo "... src/util/result.s"
+	@echo "... src/util/stack.o"
+	@echo "... src/util/stack.i"
+	@echo "... src/util/stack.s"
 	@echo "... src/util/vector.o"
 	@echo "... src/util/vector.i"
 	@echo "... src/util/vector.s"
