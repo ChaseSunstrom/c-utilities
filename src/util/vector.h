@@ -13,7 +13,7 @@ typedef struct {
 #define Vector(type) CUTIL_AUTO_CLEANUP(Vector_free_) Vector *
 #define Vector_new(...) CONCAT(Vector_new_, NARGS(__VA_ARGS__))(__VA_ARGS__)
 
-Vector *Vector_new_1(void (*destructor)(void *));
+Vector *Vector_new_1(Allocator *p_allocator);
 Vector *Vector_new_2(void (*destructor)(void *), Allocator *p_allocator);
 Vector *Vector_new_3(size_t u_capacity, void (*destructor)(void *),
                      Allocator *p_allocator);

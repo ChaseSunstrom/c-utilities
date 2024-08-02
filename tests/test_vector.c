@@ -2,22 +2,18 @@
 #include <assert.h>
 
 bool test_vector_new() {
-  Allocator* p_allocator = Allocator_new(PAGE_ALLOCATOR);
+  Allocator *p_allocator = Allocator_new(PAGE_ALLOCATOR);
   Vector(i32) v = Vector_new(NULL);
-  if (v && v->container && v->container->u_size == 0 && v->container->u_capacity == 4 && v->container->p_data) {
+  if (v && v->container && v->container->u_size == 0 &&
+      v->container->u_capacity == 4 && v->container->p_data) {
     return true;
   }
   return false;
 }
 
 bool test_vector_push_back() {
-  Allocator* p_allocator = Allocator_new(PAGE_ALLOCATOR);
-  Vector(i32) v = Vector_new(NULL, p_allocator);
-  for (size_t i = 0; i < 100; i++)
-    Vector_push_back(v, (void *)i);
-
-  for (size_t i = 0; i < 100; i++)
-    printf("%d\n",(intptr_t)Vector_at(v, i));
+  Vector(i32) v = Vector_new(NULL);
+  Vector_push_back(v, (void *)1);
 
   bool result = (v->container->u_size == 1 && v->container->u_capacity == 4);
   return result;

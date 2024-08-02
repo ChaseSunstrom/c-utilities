@@ -29,4 +29,19 @@ void *page_realloc(void *p_data, size_t u_size, size_t u_amount);
 
 void page_free(void *p_data, size_t u_size, size_t u_amount);
 
+#define SET_REF_COUNT(obj, value) ((obj)->u_ref_count = (value))
+
+// Move macro
+#define move(obj)                                                              \
+  ({                                                                           \
+    SET_REF_COUNT(obj, 1);                                                     \
+    obj;                                                                       \
+  })
+
+#define copy(obj)                                                              \
+  ({                                                                           \
+    SET_REF_COUNT(obj, (obj)->u_ref_count + 1);                                \
+    obj;                                                                       \
+  })
+
 #endif

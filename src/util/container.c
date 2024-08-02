@@ -130,3 +130,19 @@ void Container_erase(Container *p_container, size_t u_index) {
   p_container->p_data[p_container->u_size - 1] = NULL;
   p_container->u_size--;
 }
+
+void Container_remove(Container *p_container, size_t u_index) {
+  if (!p_container || u_index >= p_container->u_size) {
+    return;
+  }
+
+  if (p_container->destructor) {
+    p_container->destructor(p_container->p_data[u_index]);
+  }
+
+  for (size_t i = u_index; i < p_container->u_size - 1; i++) {
+    p_container->p_data[i] = p_container->p_data[i + 1];
+  }
+
+  p_container->u_size--;
+}

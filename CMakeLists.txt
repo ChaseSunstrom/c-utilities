@@ -22,10 +22,14 @@ add_executable(
   src/util/alloc.c
   src/util/container.h
   src/util/container.c
+  src/util/list.h
+  src/util/list.c
   tests/test_main.h
   tests/test_main.c
   tests/test_vector.c
   tests/test_vector.h
+  tests/test_list.h
+  tests/test_list.c
   tests/test_allocator.c
   tests/test_allocator.h)
 

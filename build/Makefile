@@ -225,6 +225,30 @@ src/util/error.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/error.c.s
 .PHONY : src/util/error.c.s
 
+src/util/list.o: src/util/list.c.o
+.PHONY : src/util/list.o
+
+# target to build an object file
+src/util/list.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/list.c.o
+.PHONY : src/util/list.c.o
+
+src/util/list.i: src/util/list.c.i
+.PHONY : src/util/list.i
+
+# target to preprocess a source file
+src/util/list.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/list.c.i
+.PHONY : src/util/list.c.i
+
+src/util/list.s: src/util/list.c.s
+.PHONY : src/util/list.s
+
+# target to generate assembly for a file
+src/util/list.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/list.c.s
+.PHONY : src/util/list.c.s
+
 src/util/mem.o: src/util/mem.c.o
 .PHONY : src/util/mem.o
 
@@ -321,6 +345,30 @@ tests/test_allocator.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/tests/test_allocator.c.s
 .PHONY : tests/test_allocator.c.s
 
+tests/test_list.o: tests/test_list.c.o
+.PHONY : tests/test_list.o
+
+# target to build an object file
+tests/test_list.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/tests/test_list.c.o
+.PHONY : tests/test_list.c.o
+
+tests/test_list.i: tests/test_list.c.i
+.PHONY : tests/test_list.i
+
+# target to preprocess a source file
+tests/test_list.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/tests/test_list.c.i
+.PHONY : tests/test_list.c.i
+
+tests/test_list.s: tests/test_list.c.s
+.PHONY : tests/test_list.s
+
+# target to generate assembly for a file
+tests/test_list.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/tests/test_list.c.s
+.PHONY : tests/test_list.c.s
+
 tests/test_main.o: tests/test_main.c.o
 .PHONY : tests/test_main.o
 
@@ -390,6 +438,9 @@ help:
 	@echo "... src/util/error.o"
 	@echo "... src/util/error.i"
 	@echo "... src/util/error.s"
+	@echo "... src/util/list.o"
+	@echo "... src/util/list.i"
+	@echo "... src/util/list.s"
 	@echo "... src/util/mem.o"
 	@echo "... src/util/mem.i"
 	@echo "... src/util/mem.s"
@@ -402,6 +453,9 @@ help:
 	@echo "... tests/test_allocator.o"
 	@echo "... tests/test_allocator.i"
 	@echo "... tests/test_allocator.s"
+	@echo "... tests/test_list.o"
+	@echo "... tests/test_list.i"
+	@echo "... tests/test_list.s"
 	@echo "... tests/test_main.o"
 	@echo "... tests/test_main.i"
 	@echo "... tests/test_main.s"

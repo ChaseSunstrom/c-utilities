@@ -1,7 +1,7 @@
 #include "vector.h"
 
-Vector *Vector_new_1(void (*destructor)(void *)) {
-  return Vector_new_3(4, destructor, NULL);
+Vector *Vector_new_1(Allocator *p_allocator) {
+  return Vector_new_3(4, NULL, p_allocator);
 }
 
 Vector *Vector_new_2(void (*destructor)(void *), Allocator *p_allocator) {
@@ -76,9 +76,7 @@ void Vector_free(Vector *p_vector) {
   Allocator_free(allocator, p_vector);
 
   // If it's a general allocator, we need to free everything
-  if ((allocator->type == GENERAL_ALLOCATOR ||
-       allocator->type == PAGE_ALLOCATOR) &&
-      !b_external_allocator) {
+  if (allocator->type != STACK_ALLOCATOR && !b_external_allocator) {
     Allocator_free_everything(
         allocator); // Assuming allocator was created with malloc
   }
@@ -132,7 +130,7 @@ void Vector_pop_back(Vector *p_vector) {
     return;
   }
 
-  p_vector->container->u_size--;
+  Container_remove(p_vector->container, p_vector->container->u_size - 1);
 }
 
 void Vector_insert(Vector *p_vector, size_t u_index, void *p_elem) {
