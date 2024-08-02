@@ -173,7 +173,7 @@ void String_replace(String *p_string, const char *p_old, const char *p_new) {
   }
 
   size_t u_index = 0;
-  while ((u_index = String_find(p_string, p_old, u_index)) != SIZE_MAX) {
+  while ((u_index = String_find(p_string, p_old, &u_index)) != SIZE_MAX) {
     String_erase(p_string, u_index, u_old_size);
     String_insert(p_string, u_index, p_new);
     u_index += u_new_size;
@@ -196,7 +196,7 @@ void String_replace_all(String *p_string, const char *p_old, const char *p_new) 
   }
 
   size_t u_index = 0;
-  while ((u_index = String_find(p_string, p_old, u_index)) != SIZE_MAX) {
+  while ((u_index = String_find(p_string, p_old, &u_index)) != SIZE_MAX) {
     String_erase(p_string, u_index, u_old_size);
     String_insert(p_string, u_index, p_new);
     u_index += u_new_size;
