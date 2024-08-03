@@ -47,4 +47,6 @@ add_executable(
   tests/test_allocator.c
   tests/test_allocator.h)
 
+target_link_libraries(${PROJECT_NAME} PRIVATE m)
+
 target_include_directories(${PROJECT_NAME} PRIVATE include)
