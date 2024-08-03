@@ -78,6 +78,16 @@ void Unordered_Map_free(Unordered_Map *p_map) {
   bool b_external_allocator = p_map->p_container->b_external_allocator;
   Allocator *p_allocator = p_map->p_container->p_allocator;
 
+  for (size_t i = 0; i < p_map->p_container->u_capacity; i++) {
+    Unordered_Map_Entry *p_entry = p_map->p_container->p_data[i];
+    while (p_entry) {
+      Unordered_Map_Entry *p_next = p_entry->p_next;
+      Unordered_Map_Entry_free(p_entry);
+      p_map->p_container->p_data[i] = NULL;
+      p_entry = p_next;
+    }
+  }
+
   Container_free(p_map->p_container);
   Allocator_free(p_allocator, p_map);
 
