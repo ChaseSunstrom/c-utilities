@@ -10,6 +10,10 @@ add_executable(
   src/util/vector.c
   src/util/vector.h
   src/util/pch.h
+  src/util/hash.h
+  src/util/hash.c
+  src/util/unordered_map.h
+  src/util/unordered_map.c
   src/util/types.h
   src/util/error.c
   src/util/error.h

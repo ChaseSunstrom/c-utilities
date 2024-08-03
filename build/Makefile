@@ -249,6 +249,30 @@ src/util/error.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/error.c.s
 .PHONY : src/util/error.c.s
 
+src/util/hash.o: src/util/hash.c.o
+.PHONY : src/util/hash.o
+
+# target to build an object file
+src/util/hash.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/hash.c.o
+.PHONY : src/util/hash.c.o
+
+src/util/hash.i: src/util/hash.c.i
+.PHONY : src/util/hash.i
+
+# target to preprocess a source file
+src/util/hash.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/hash.c.i
+.PHONY : src/util/hash.c.i
+
+src/util/hash.s: src/util/hash.c.s
+.PHONY : src/util/hash.s
+
+# target to generate assembly for a file
+src/util/hash.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/hash.c.s
+.PHONY : src/util/hash.c.s
+
 src/util/list.o: src/util/list.c.o
 .PHONY : src/util/list.o
 
@@ -417,6 +441,30 @@ src/util/tree.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/tree.c.s
 .PHONY : src/util/tree.c.s
 
+src/util/unordered_map.o: src/util/unordered_map.c.o
+.PHONY : src/util/unordered_map.o
+
+# target to build an object file
+src/util/unordered_map.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/unordered_map.c.o
+.PHONY : src/util/unordered_map.c.o
+
+src/util/unordered_map.i: src/util/unordered_map.c.i
+.PHONY : src/util/unordered_map.i
+
+# target to preprocess a source file
+src/util/unordered_map.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/unordered_map.c.i
+.PHONY : src/util/unordered_map.c.i
+
+src/util/unordered_map.s: src/util/unordered_map.c.s
+.PHONY : src/util/unordered_map.s
+
+# target to generate assembly for a file
+src/util/unordered_map.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-utilities.dir/build.make CMakeFiles/c-utilities.dir/src/util/unordered_map.c.s
+.PHONY : src/util/unordered_map.c.s
+
 src/util/vector.o: src/util/vector.c.o
 .PHONY : src/util/vector.o
 
@@ -561,6 +609,9 @@ help:
 	@echo "... src/util/error.o"
 	@echo "... src/util/error.i"
 	@echo "... src/util/error.s"
+	@echo "... src/util/hash.o"
+	@echo "... src/util/hash.i"
+	@echo "... src/util/hash.s"
 	@echo "... src/util/list.o"
 	@echo "... src/util/list.i"
 	@echo "... src/util/list.s"
@@ -582,6 +633,9 @@ help:
 	@echo "... src/util/tree.o"
 	@echo "... src/util/tree.i"
 	@echo "... src/util/tree.s"
+	@echo "... src/util/unordered_map.o"
+	@echo "... src/util/unordered_map.i"
+	@echo "... src/util/unordered_map.s"
 	@echo "... src/util/vector.o"
 	@echo "... src/util/vector.i"
 	@echo "... src/util/vector.s"

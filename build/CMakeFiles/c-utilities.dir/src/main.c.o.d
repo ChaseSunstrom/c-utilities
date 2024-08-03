@@ -79,4 +79,9 @@ CMakeFiles/c-utilities.dir/src/main.c.o: \
  /home/chase/Projects/C/c-utilities/src/util/system.h /usr/include/time.h \
  /usr/include/x86_64-linux-gnu/bits/time.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h
+ /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
+ /home/chase/Projects/C/c-utilities/src/util/hash.h \
+ /home/chase/Projects/C/c-utilities/src/util/alloc.h \
+ /home/chase/Projects/C/c-utilities/src/util/unordered_map.h \
+ /home/chase/Projects/C/c-utilities/src/util/container.h \
+ /home/chase/Projects/C/c-utilities/src/util/hash.h

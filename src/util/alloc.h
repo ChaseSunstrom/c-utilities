@@ -11,10 +11,6 @@ typedef enum {
   PAGE_ALLOCATOR,
 } Alloc_T;
 
-typedef void *(*Alloc_Fn)(size_t, size_t);
-typedef void *(*Realloc_Fn)(void *, size_t, size_t);
-typedef void (*Dealloc_Fn)(void *);
-
 typedef struct Allocated_Block_T {
   void *p_data;
   size_t u_size;

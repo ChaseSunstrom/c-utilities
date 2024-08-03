@@ -46,11 +46,12 @@ Vector *Vector_new_4(void *arr_data, size_t u_arr_size,
 
   p_vector->container = Container_new(arr_data, u_arr_size, u_arr_size * 2,
                                       destructor, p_allocator);
-  p_vector->container->b_external_allocator = b_external_allocator;
   if (!p_vector->container) {
     Allocator_free(p_allocator, p_vector);
     return NULL;
   }
+
+  p_vector->container->b_external_allocator = b_external_allocator;
 
   return p_vector;
 }

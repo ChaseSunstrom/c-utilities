@@ -18,6 +18,10 @@
 #endif
 #endif
 
+typedef void *(*Alloc_Fn)(size_t u_size, size_t u_amount);
+typedef void *(*Realloc_Fn)(void *p_data, size_t u_size, size_t u_amount);
+typedef void (*Dealloc_Fn)(void *p_data);
+
 void *stack_alloc(size_t u_size, size_t u_amount);
 void *general_alloc(size_t u_size, size_t u_amount);
 void *arena_alloc(size_t u_size, size_t u_amount);
