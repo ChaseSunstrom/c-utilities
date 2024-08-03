@@ -5,6 +5,7 @@
 #define CUTIL_VERSION_MINOR 1
 #define CUTIL_VERSION_PATCH 0
 
+
 #ifdef __unix
 #define CUTIL_UNIX 1
 #else

@@ -3,11 +3,11 @@
 
 #include "pch.h"
 
-#ifdef _MSC_VER
+#ifdef _WIN32
 // MSVC
 #include <malloc.h>
 #define alloca _alloca
-#elif defined(__GNUC__)
+#elif defined(__GNUC__) || defined(__clang__)
 // GCC, Clang, Intel
 #include <alloca.h>
 #else

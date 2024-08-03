@@ -35,7 +35,7 @@ List *List_new_4(void *p_arr_data, size_t u_arr_size,
   }
 
   for (size_t i = 0; i < u_arr_size; i++) {
-    List_push_back(p_list, p_arr_data + i);
+    List_push_back(p_list, (u8*)p_arr_data + i);
   }
 
   return p_list;

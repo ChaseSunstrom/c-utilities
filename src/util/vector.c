@@ -77,7 +77,7 @@ void Vector_free(Vector *p_vector) {
   Allocator_free(allocator, p_vector);
 
   // If it's a general allocator, we need to free everything
-  if (allocator->type != STACK_ALLOCATOR && !b_external_allocator) {
+  if (!b_external_allocator) {
     Allocator_free_everything(
         allocator); // Assuming allocator was created with malloc
   }

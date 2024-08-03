@@ -1,6 +1,7 @@
 #ifndef CUTIL_PCH_H
 #define CUTIL_PCH_H
 
+#define _CRT_SECURE_NO_WARNINGS
 #include <assert.h>
 #include <ctype.h>
 #include <math.h>

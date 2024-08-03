@@ -1,1 +1,13 @@
 build/
+bin/
+.idea/
+.vs/
+build/
+c_utilities_exe/
+c_utilities_lib/
+cmake-build-debug/
+cmake-build-release/
+cmake-build-relwithdebinfo/
+obj/
+out/
+x64/

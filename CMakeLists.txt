@@ -1,52 +1,68 @@
 cmake_minimum_required(VERSION 3.12)
 project(c-utilities)
 
-set(CMAKE_C_STANDARD 23)
+set(CMAKE_C_STANDARD 17)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
-add_executable(
-  ${PROJECT_NAME}
-  src/main.c
+# Debugging output
+message(STATUS "Project source dir: ${CMAKE_CURRENT_SOURCE_DIR}")
+message(STATUS "Main.c location: ${CMAKE_CURRENT_SOURCE_DIR}/src/main.c")
+
+# Ensure static linking
+set(CMAKE_FIND_LIBRARY_SUFFIXES ".a")
+set(BUILD_SHARED_LIBS OFF)
+
+# Main library (now explicitly static)
+add_library(c_utilities_lib STATIC
   src/util/vector.c
-  src/util/vector.h
-  src/util/pch.h
-  src/util/hash.h
   src/util/hash.c
-  src/util/unordered_map.h
   src/util/unordered_map.c
-  src/util/types.h
-  src/util/error.c
-  src/util/error.h
-  src/util/result.c
-  src/util/result.h
-  src/util/mem.h
   src/util/mem.c
-  src/util/system.h
-  src/util/alloc.h
   src/util/alloc.c
-  src/util/container.h
   src/util/container.c
-  src/util/list.h
   src/util/list.c
-  src/util/tree.h
   src/util/tree.c
-  src/util/queue.h
-  src/util/string.h
   src/util/string.c
   src/util/queue.c
-  src/util/dequeue.h
   src/util/dequeue.c
-  src/util/stack.h
   src/util/stack.c
-  tests/test_main.h
+)
+
+target_include_directories(c_utilities_lib PUBLIC 
+  ${CMAKE_CURRENT_SOURCE_DIR}/src
+  ${CMAKE_CURRENT_SOURCE_DIR}/include
+)
+
+# Main executable
+add_executable(c_utilities_exe "${CMAKE_CURRENT_SOURCE_DIR}/src/main.c")
+set_target_properties(c_utilities_exe PROPERTIES OUTPUT_NAME "c-utilities")
+target_link_libraries(c_utilities_exe PRIVATE c_utilities_lib)
+
+# Test executable
+add_executable(c_utilities_test
   tests/test_main.c
   tests/test_vector.c
-  tests/test_vector.h
-  tests/test_list.h
   tests/test_list.c
   tests/test_allocator.c
-  tests/test_allocator.h)
+)
+target_link_libraries(c_utilities_test PRIVATE c_utilities_lib)
 
-target_link_libraries(${PROJECT_NAME} PRIVATE m)
+# Set startup targets
+set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT c_utilities_exe)
 
-target_include_directories(${PROJECT_NAME} PRIVATE include)
+# Add debug symbols
+if(MSVC)
+  set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} /Zi")
+  set(CMAKE_SHARED_LINKER_FLAGS_RELEASE "${CMAKE_SHARED_LINKER_FLAGS_RELEASE} /DEBUG /OPT:REF /OPT:ICF")
+else()
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g")
+endif()
+
+# Link math library only if it exists (for non-Windows platforms)
+if(NOT WIN32)
+  target_link_libraries(c_utilities_exe PRIVATE m)
+  target_link_libraries(c_utilities_test PRIVATE m)
+endif()
+
+# More debugging output
+message(STATUS "C_UTILITIES_EXE sources: $<TARGET_PROPERTY:c_utilities_exe,SOURCES>")

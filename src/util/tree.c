@@ -39,7 +39,7 @@ Tree *Tree_new_5(void *p_arr_data, size_t u_arr_size,
   }
 
   for (size_t i = 0; i < u_arr_size; i++) {
-    Tree_insert(p_tree, p_arr_data + i);
+    Tree_insert(p_tree, (u8*)p_arr_data + i);
   }
 
   return p_tree;
