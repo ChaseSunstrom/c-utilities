@@ -59,14 +59,14 @@ size_t murmur2_hash(const void *data, size_t size) {
     size -= 4;
   }
 
-  const u8 *tail = (const u8 *)p;
+  const u8 *u_tail = (const u8 *)p;
   switch (size) {
   case 3:
-    h ^= tail[2] << 16;
+    h ^= u_tail[2] << 16;
   case 2:
-    h ^= tail[1] << 8;
+    h ^= u_tail[1] << 8;
   case 1:
-    h ^= tail[0];
+    h ^= u_tail[0];
     h *= m;
   };
 

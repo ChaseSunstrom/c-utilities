@@ -1,94 +1,84 @@
-#include "../tests/test_main.h"
-#include "util/hash.h"
-#include "util/system.h"
-#include "util/unordered_map.h"
-#include "util/alloc.h"
+#include "util/thread_pool.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <time.h>
+#include <assert.h>
 
-#define NUM_INSERTIONS 1000000
-#define MAX_KEY_LENGTH 20
+#define NUM_TASKS 100
+#define NUM_THREADS 50
 
-size_t custom_key_hash(const void* key, size_t len) {
-    const char* str = (const char*)key;
-
-    // Check if the string starts with "key_"
-    if (len < 4 || strncmp(str, "key_", 4) != 0) {
-        // If not, fall back to a simple hash
-        size_t hash = 5381;
-        for (size_t i = 0; i < len; i++) {
-            hash = ((hash << 5) + hash) + str[i];
-        }
-        return hash;
-    }
-
-    // Extract the number after "key_"
-    size_t num = 0;
-    for (size_t i = 4; i < len; i++) {
-        if (str[i] >= '0' && str[i] <= '9') {
-            num = num * 10 + (str[i] - '0');
-        }
-        else {
-            break;
-        }
-    }
-
-    // Combine the "key_" part and the number
-    return (size_t)((5381 * 33 * 33 * 33 * 33) + num);
+void initialize_random_seed() {
+    srand((unsigned int)time(NULL));
 }
 
-void key_destructor(void* key) {
-    // Simplified destructor
-    free(key);
-}
+void* increment_task(void* p_arg) {
+    int* p_num = (int*)p_arg;
 
-void value_destructor(void* value) {
-    // Simplified destructor
-    free(value);
-}
+    // Generate a random delay between 0 and 1000 milliseconds
+    int delay_ms = rand() % 1001;
 
-i32 main() {
-#ifdef CUTIL_TEST
-    Tests_T* p_tests = Tests_T_new();
-    Tests_T_run(p_tests);
+    // Sleep for the random duration
+#ifdef _WIN32
+    Sleep(delay_ms);
+#else
+    usleep(delay_ms * 1000);  // usleep takes microseconds
 #endif
-    printf("Creating Allocator\n");
-    Allocator* allocator = Allocator_new(GENERAL_ALLOCATOR);
-    if (!allocator) {
-        fprintf(stderr, "Failed to create Allocator\n");
-        return 1;
+
+    (*p_num)++;
+    printf("Task %d completed after %d ms.\n", *p_num, delay_ms);
+    return p_num;
+}
+
+int main() {
+    for (int k = 0; k < 10; k++)
+    {
+        printf("Starting Thread Pool test...\n");
+
+        // Create thread pool
+        Thread_Pool* p_pool = Thread_Pool_new(NUM_THREADS);
+        if (!p_pool) {
+            printf("Failed to create thread pool.\n");
+            return 1;
+        }
+
+        printf("Thread Pool created successfully.\n");
+
+        // Prepare tasks
+        int numbers[NUM_TASKS];
+        Task* p_tasks[NUM_TASKS];
+
+        // Add tasks to the pool
+        for (int i = 0; i < NUM_TASKS; i++) {
+            numbers[i] = i;
+            p_tasks[i] = Thread_Pool_add_task(p_pool, increment_task, &numbers[i]);
+            if (!p_tasks[i]) {
+                printf("Failed to add task %d.\n", i);
+                Thread_Pool_destroy(p_pool);
+                return 1;
+            }
+        }
+
+        printf("All tasks added to the pool.\n");
+
+        // Wait for all tasks to complete
+        Thread_Pool_wait(p_pool);
+
+        printf("All tasks completed. Checking results...\n");
+
+        // Check results
+        for (int i = 0; i < NUM_TASKS; i++) {
+            int* p_result = (int*)Thread_Pool_get_result(p_tasks[i]);
+            if (*p_result != i + 1) {
+                printf("Unexpected result for task %d: expected %d, got %d\n", i, i + 1, *p_result);
+                Thread_Pool_destroy(p_pool);
+                return 1;
+            }
+        }
+
+        printf("All results are correct.\n");
+
+        // Clean up
+        Thread_Pool_destroy(p_pool);
+
+        printf("Thread Pool destroyed. Test completed successfully!\n");
     }
-    printf("Creating Unordered_Map\n");
-    Unordered_Map* map = Unordered_Map_new(custom_key_hash, key_destructor, value_destructor, allocator);
-    if (!map) {
-        fprintf(stderr, "Failed to create Unordered_Map\n");
-        Allocator_free_everything(allocator);
-        return 1;
-    }
-    clock_t start, end;
-    f64 cpu_time_used;
-    start = clock();
-    char key_buffer[MAX_KEY_LENGTH];
-    for (i32 i = 0; i < NUM_INSERTIONS; i++) {
-        snprintf(key_buffer, MAX_KEY_LENGTH, "key_%d", i);
-        // Explicitly use the two-argument version of Allocator_alloc
-        char* key = Allocator_alloc(allocator, strlen(key_buffer) + 1);
-        char* value = Allocator_alloc(allocator, 3); // "hi" + null terminator
-        strcpy(key, key_buffer);
-        strcpy(value, "hi");
-        Unordered_Map_insert(map, key, value, strlen(key) + 1);
-    }
-    end = clock();
-    cpu_time_used = ((f64)(end - start)) / CLOCKS_PER_SEC;
-    printf("Time taken to insert %d elements: %f seconds\n", NUM_INSERTIONS, cpu_time_used);
-    printf("Final size of the map: %zu\n", map->u_size);
-    printf("Freeing Unordered_Map\n");
-    Unordered_Map_free(map);
-    printf("Unordered_Map freed successfully\n");
-    printf("Freeing Allocator\n");
-    Allocator_free_everything(allocator);
-    printf("Allocator freed successfully\n");
-    return 0;
 }

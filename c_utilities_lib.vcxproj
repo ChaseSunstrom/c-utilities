@@ -107,6 +107,7 @@
     <ClInclude Include="src\util\stack.h" />
     <ClInclude Include="src\util\string.h" />
     <ClInclude Include="src\util\system.h" />
+    <ClInclude Include="src\util\thread_pool.h" />
     <ClInclude Include="src\util\tree.h" />
     <ClInclude Include="src\util\types.h" />
     <ClInclude Include="src\util\unordered_map.h" />
@@ -122,6 +123,7 @@
     <ClCompile Include="src\util\queue.c" />
     <ClCompile Include="src\util\stack.c" />
     <ClCompile Include="src\util\string.c" />
+    <ClCompile Include="src\util\thread_pool.c" />
     <ClCompile Include="src\util\tree.c" />
     <ClCompile Include="src\util\unordered_map.c" />
     <ClCompile Include="src\util\vector.c" />
