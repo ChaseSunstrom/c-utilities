@@ -12,7 +12,7 @@ typedef struct {
 #define Queue_new(...) CONCAT(Queue_new_, NARGS(__VA_ARGS__))(__VA_ARGS__)
 
 Queue *Queue_new_1(Allocator *p_allocator);
-Queue *Queue_new_2(void (*destructor)(void *), Allocator *p_allocator);
+Queue *Queue_new_2(Dealloc_Fn destructor, Allocator *p_allocator);
 void Queue_free(Queue *p_queue);
 void Queue_free_(Queue **p_queue);
 void Queue_enqueue(Queue *p_queue, void *p_data);
