@@ -22,15 +22,15 @@ typedef struct {
 #define Tree(type) defer(Tree_free_) Tree *
 #define Tree_new(...) CONCAT(Tree_new_, NARGS(__VA_ARGS__))(__VA_ARGS__)
 
-void Tree_free_node(Tree_Node *p_node, void (*destructor)(void *),
+void Tree_free_node(Tree_Node *p_node, Dealloc_Fn destructor,
                     Allocator *p_allocator);
 
 Tree *Tree_new_1(Allocator *p_allocator);
 Tree *Tree_new_2(Comparator_Fn comparator, Allocator *p_allocator);
-Tree *Tree_new_3(void (*destructor)(void *), Comparator_Fn comparator,
+Tree *Tree_new_3(Dealloc_Fn destructor, Comparator_Fn comparator,
                  Allocator *p_allocator);
 Tree *Tree_new_5(void *p_arr_data, size_t u_arr_size,
-                 void (*destructor)(void *), Comparator_Fn comparator,
+                 Dealloc_Fn destructor, Comparator_Fn comparator,
                  Allocator *p_allocator);
 void Tree_free(Tree *p_tree);
 void Tree_free_(Tree **pp_tree);
