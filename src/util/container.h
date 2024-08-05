@@ -20,7 +20,7 @@ typedef struct {
 #define Container(type) defer(Container_free_) Container *
 
 Container *Container_new(void *p_data, size_t u_data_size, size_t u_capacity,
-                         void (*destructor)(void *), Allocator *p_allocator);
+                         Dealloc_Fn destructor, Allocator *p_allocator);
 void *Container_at(Container *p_container, size_t u_index);
 void Container_free(Container *p_container);
 void Container_free_(Container **pp_container);
