@@ -12,7 +12,7 @@ typedef struct {
 #define Dequeue_new(...) CONCAT(Dequeue_new_, NARGS(__VA_ARGS__))(__VA_ARGS__)
 
 Dequeue *Dequeue_new_1(Allocator *p_allocator);
-Dequeue *Dequeue_new_2(void (*destructor)(void *), Allocator *p_allocator);
+Dequeue *Dequeue_new_2(Dealloc_Fn destructor, Allocator *p_allocator);
 void Dequeue_free(Dequeue *p_dequeue);
 void Dequeue_free_(Dequeue **p_dequeue);
 void *Dequeue_back(Dequeue *p_dequeue);
