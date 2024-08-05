@@ -28,7 +28,7 @@ void Vector_push_back(Vector *p_vector, void *p_elem);
 void Vector_pop_back(Vector *p_vector);
 void Vector_insert(Vector *p_vector, size_t u_index, void *p_elem);
 void Vector_erase(Vector *p_vector, size_t u_index);
-void Vector_clear(Vector *pp_vector);
+void Vector_clear(Vector *p_vector);
 bool Vector_empty(Vector *p_vector);
 
 #endif
