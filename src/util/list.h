@@ -23,9 +23,9 @@ typedef struct {
 #define List_new(...) CONCAT(List_new_, NARGS(__VA_ARGS__))(__VA_ARGS__)
 
 List *List_new_1(Allocator *p_allocator);
-List *List_new_2(void (*destructor)(void *), Allocator *p_allocator);
+List *List_new_2(Dealloc_Fn destructor, Allocator *p_allocator);
 List *List_new_4(void *p_arr_data, size_t u_arr_size,
-                 void (*destructor)(void *), Allocator *p_allocator);
+                 Dealloc_Fn destructor, Allocator *p_allocator);
 void List_free(List *p_list);
 void List_free_(List **p_list);
 void List_push_back(List *p_list, void *p_data);
